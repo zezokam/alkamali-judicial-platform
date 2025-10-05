@@ -4,32 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حاسبة مكافأة نهاية الخدمة - المرجع القضائي</title>
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/components.css">
-    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
     <!-- Font Awesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts - Tajawal -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <a href="../../index.html">
-                    <i class="fas fa-balance-scale"></i>
-                    المرجع القضائي
-                </a>
-            </div>
-            <div class="nav-menu">
-                <a href="../../index.html" class="nav-link">الرئيسية</a>
-                <a href="end-service.html" class="nav-link active">الحاسبات</a>
-                <a href="#" class="nav-link">المراجع</a>
-                <a href="#" class="nav-link">اتصل بنا</a>
-            </div>
-        </div>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <a href="../index.html" class="logo">
+                <img src="../images/final_logo.svg" alt="شعار المرجع القضائي" id="logo-placeholder">
+                <h1>المرجع القضائي</h1>
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html"><i class="fas fa-home icon"></i>الرئيسية</a></li>
+                <li><a href="calculator.html"><i class="fas fa-calculator icon"></i>حاسبة مكافأة نهاية الخدمة</a></li>
+                <li><a href="https://azzan.notion.site/" target="_blank"><i class="fas fa-book icon"></i>مُعين: مراجع ونماذج قضائية</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle icon"></i>نبذة</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope icon"></i>تواصل معنا</a></li>
+                <li><a href="login.html"><i class="fas fa-user icon"></i>تسجيل الدخول</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <div class="page-header">
@@ -68,38 +69,28 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>المرجع القضائي</h3>
-                    <p>منصة شاملة للقوانين والأحكام القضائية في سلطنة عمان</p>
-                </div>
-                <div class="footer-section">
-                    <h4>روابط سريعة</h4>
-                    <ul>
-                        <li><a href="../../index.html">الرئيسية</a></li>
-                        <li><a href="end-service.html">الحاسبات</a></li>
-                        <li><a href="#">المراجع</a></li>
-                        <li><a href="#">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>تواصل معنا</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> info@alkamali.uk</p>
-                        <p><i class="fas fa-globe"></i> www.alkamali.uk</p>
-                    </div>
-                </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">المرجع القضائي</div>
+            <ul class="footer-links">
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="calculator.html">حاسبة مكافأة نهاية الخدمة</a></li>
+                <li><a href="https://azzan.notion.site/">مُعين: مراجع ونماذج قضائية</a></li>
+                <li><a href="about.html">نبذة</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="calculator.html#"><i class="fab fa-twitter"></i></a>
+                <a href="calculator.html#"><i class="fab fa-linkedin"></i></a>
+                <a href="calculator.html#"><i class="fab fa-instagram"></i></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 المرجع القضائي. جميع الحقوق محفوظة.</p>
+            <div class="copyright">
+                &copy; 2025 القاضي عزان الكمالي - جميع الحقوق محفوظة
             </div>
         </div>
     </footer>
 
-    <script src="../../js/main.js"></script>
+    <script src="../js/main.js"></script>
     
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "04ae7959925e4fe692ceab1bd15e1a62"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
