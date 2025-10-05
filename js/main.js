@@ -1,63 +1,104 @@
-/* 
- * المرجع القضائي - ملف JavaScript الرئيسي
- * تصميم: القاضي عزان الكمالي
- */
-
+// التنقل والقوائم المنسدلة
 document.addEventListener('DOMContentLoaded', function() {
-    // التنقل المتجاوب للأجهزة المحمولة
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    // عناصر التنقل
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
+    // تبديل القائمة الرئيسية للهاتف
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
         });
     }
     
-    // إغلاق القائمة عند النقر على أي رابط
-    const navItems = document.querySelectorAll('.nav-links a');
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                navLinks.classList.remove('active');
+    // القوائم المنسدلة
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const dropdown = this.parentElement;
+            const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+            
+            // إغلاق جميع القوائم المنسدلة الأخرى
+            document.querySelectorAll('.nav-dropdown').forEach(otherDropdown => {
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove('active');
+                }
+            });
+            
+            // تبديل القائمة الحالية
+            dropdown.classList.toggle('active');
+        });
+    });
+    
+    // إغلاق القوائم المنسدلة عند النقر خارجها
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-dropdown')) {
+            document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+    
+    // إغلاق القائمة عند النقر على رابط
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+            if (navMenu) {
+                navMenu.classList.remove('active');
+            }
+            if (navToggle) {
+                navToggle.classList.remove('active');
             }
         });
     });
-    
-    // إغلاق القائمة عند النقر خارجها
-    document.addEventListener('click', function(event) {
-        const isClickInsideNav = navLinks.contains(event.target);
-        const isClickOnMenuBtn = mobileMenuBtn.contains(event.target);
-        
-        if (!isClickInsideNav && !isClickOnMenuBtn && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-        }
-    });
-    
-    // تحقق من وجود الصور وإضافة صور بديلة إذا لم تكن موجودة
-    const logoPlaceholder = document.getElementById('logo-placeholder');
-    if (logoPlaceholder && logoPlaceholder.naturalWidth === 0) {
-        logoPlaceholder.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjOEI2RTRFIi8+Cjx0ZXh0IHg9IjUwIiB5PSI1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+2KfZhNmF2LHYrNi5PC90ZXh0Pgo8L3N2Zz4=';
-    }
-    
-    // تحقق من وجود صور البطاقات وإضافة صور بديلة إذا لم تكن موجودة
-    const cardImgPlaceholders = [
-        document.getElementById('calculator-img-placeholder'),
-        document.getElementById('references-img-placeholder'),
-        document.getElementById('legal-img-placeholder')
-    ];
-    
-    const placeholderColors = ['#8B6E4E', '#4A6741', '#9C4A1A'];
-    const placeholderTexts = ['حاسبة', 'مراجع', 'موارد'];
-    
-    cardImgPlaceholders.forEach((img, index) => {
-        if (img && img.naturalWidth === 0) {
-            const color = placeholderColors[index % placeholderColors.length];
-            const text = placeholderTexts[index % placeholderTexts.length];
-            img.src = `data:image/svg+xml;base64,${btoa(`<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="300" height="200" fill="${color}"/>
-                <text x="150" y="100" font-family="Arial" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">${text}</text>
-                </svg>`)}`;
-        }
-    });
 });
+
+// وظائف إضافية للموقع
+function smoothScroll(target) {
+    document.querySelector(target).scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+// تحسين تجربة المستخدم
+window.addEventListener('load', function() {
+    // إخفاء شاشة التحميل إذا كانت موجودة
+    const loader = document.querySelector('.loader');
+    if (loader) {
+        loader.style.display = 'none';
+    }
+});
+
+// تحسين الأداء للهاتف
+if ('ontouchstart' in window) {
+    document.body.classList.add('touch-device');
+}
+
+// وظيفة البحث العامة
+function initSearch() {
+    const searchInputs = document.querySelectorAll('.search-input');
+    
+    searchInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const searchableItems = document.querySelectorAll('.searchable-item');
+            
+            searchableItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
+// تشغيل البحث عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', initSearch);
