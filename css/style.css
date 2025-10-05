@@ -1,0 +1,482 @@
+/* 
+ * المرجع القضائي - الأنماط الرئيسية
+ * تصميم: القاضي عزان الكمالي
+ */
+
+/* استخدام Google Fonts مباشرة لخط Tajawal */
+
+:root {
+  --primary-color: #8B6E4E;       /* بني فاتح */
+  --primary-dark: #6D563C;        /* بني غامق */
+  --primary-light: #D2B48C;       /* بني فاتح جداً */
+  --secondary-color: #4A6741;     /* أخضر غامق */
+  --accent-color: #9C4A1A;        /* بني محمر */
+  --text-color: #333333;          /* رمادي غامق للنصوص */
+  --text-light: #666666;          /* رمادي فاتح للنصوص الثانوية */
+  --bg-color: #F5F5F5;            /* خلفية فاتحة */
+  --bg-alt: #FFFFFF;              /* خلفية بيضاء */
+  --border-color: #E0E0E0;        /* لون الحدود */
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ظل موحد */
+  --border-radius: 8px;           /* تقويس الزوايا */
+  --transition: all 0.3s ease;    /* انتقال سلس */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  direction: rtl;
+}
+
+body {
+  font-family: "Tajawal", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* الهيدر والتنقل */
+header {
+  background-color: var(--bg-alt);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.logo img {
+  height: 60px;
+  margin-left: 15px;
+  border-radius: 50%;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.nav-links li {
+  margin-right: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.8rem 1.2rem;
+  transition: var(--transition);
+  position: relative;
+  border-radius: var(--border-radius);
+  display: block;
+}
+
+.nav-links a:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+/* القسم الرئيسي */
+main {
+  flex: 1;
+  padding: 2rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-bottom: 2rem;
+  background-color: var(--bg-alt);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+/* أقسام الصفحة الرئيسية */
+.section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 0.5rem auto;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--bg-alt);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  padding: 20px;
+  background-color: var(--bg-alt);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.card-text {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+/* الفوتر */
+footer {
+  background-color: var(--primary-dark);
+  color: white;
+  padding: 2rem 5%;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links li {
+  margin: 0 1rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary-light);
+}
+
+.social-icons {
+  display: none;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+  
+  .hero h2 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+  }
+  
+  .footer-links li {
+    margin: 0.5rem 0;
+  }
+}
+
+/* صفحات إضافية */
+.page-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.page-description {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+.content-section {
+  background-color: var(--bg-alt);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+/* نموذج الاتصال */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(139, 110, 78, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* صفحة تسجيل الدخول */
+.login-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--bg-alt);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-btn {
+  margin-top: 1rem;
+}
+
+/* أيقونات */
+.icon {
+  margin-left: 0.5rem;
+}
+
+/* تأثيرات إضافية */
+.hover-lift {
+  transition: var(--transition);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* تنسيق الصور */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-rounded {
+  border-radius: var(--border-radius);
+}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسودات الأحكام - المرجع القضائي</title>
+    
+    <!-- Google Fonts - Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .judgments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .judgment-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .judgment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #1e3c72;
+        }
+
+        .judgment-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .judgment-content {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .judgment-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            color: #666;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1e3c72;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid #1e3c72;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background: #1e3c72;
+            color: white;
+        }
+
+        .search-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(30, 60, 114, 0.2);
+            border-radius: 15px;
+            font-size: 18px;
+            font-family: 'Tajawal', sans-serif;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #1e3c72;
+            box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .page-title {
+                font-size: 32px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .judgments-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .judgment-card {
+                padding: 25px 20px;
+            }
+
+            .judgment-title {
+                font-size: 20px;
+            }
+
+            .judgment-meta {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-btn">
+            <i class="fas fa-arrow-right"></i>
+            العودة للرئيسية
+        </a>
+
+        <div class="header">
+            <h1 class="page-title">
+                <i class="fas fa-file-alt"></i>
+                مسودات الأحكام
+            </h1>
+            <p>مجموعة من مسودات الأحكام القضائية في مختلف المجالات القانونية</p>
+        </div>
+
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="ابحث في مسودات الأحكام...">
+        </div>
+
+        <div class="judgments-grid" id="judgmentsGrid">
+            <!-- مسودة حكم إيجارات وفواتير وإخلاء -->
+            <div class="judgment-card" data-keywords="إيجار فواتير إخلاء عقار سكن">
+                <h3 class="judgment-title">
+                    <i class="fas fa-home"></i>
+                    إيجارات وفواتير وإخلاء
+                </h3>
+                <div class="judgment-content">
+                    <strong>الموضوع:</strong> دعوى مطالبة بأجرة عقار ومصاريف وإخلاء<br><br>
+                    
+                    <strong>الوقائع:</strong><br>
+                    تتلخص وقائع الدعوى في أن المدعي يطالب المدعى عليه بدفع مبلغ وقدره (...) ريال عماني قيمة أجرة العقار المؤجر للمدعى عليه عن الفترة من (...) إلى (...) وكذلك مطالبته بدفع مبلغ وقدره (...) ريال عماني قيمة فواتير الكهرباء والماء المستحقة على العقار، بالإضافة إلى طلب إخلاء العقار وتسليمه خالياً من الشواغل.<br><br>
+                    
+                    <strong>الأسانيد القانونية:</strong><br>
+                    - عقد الإيجار المبرم بين الطرفين<br>
+                    - قانون تنظيم علاقة المالك والمستأجر<br>
+                    - فواتير الخدمات المستحقة<br><br>
+                    
+                    <strong>منطوق الحكم:</strong><br>
+                    حكمت المحكمة بإلزام المدعى عليه بدفع المبالغ المطالب بها وإخلاء العقار وتسليمه للمدعي خالياً من الشواغل.
+                </div>
+                <div class="judgment-meta">
+                    <span><i class="fas fa-calendar"></i> تاريخ الإضافة: 2024</span>
+                    <span><i class="fas fa-tag"></i> قانون مدني</span>
+                </div>
+            </div>
+
+            <!-- مسودة حكم تسبيب الخلع -->
+            <div class="judgment-card" data-keywords="خلع زواج طلاق أحوال شخصية">
+                <h3 class="judgment-title">
+                    <i class="fas fa-balance-scale"></i>
+                    تسبيب الخلع
+                </h3>
+                <div class="judgment-content">
+                    <strong>الموضوع:</strong> دعوى خلع<br><br>
+                    
+                    <strong>الوقائع:</strong><br>
+                    تقدمت المدعية بطلب خلع من زوجها المدعى عليه، مدعية أنها لا تستطيع الاستمرار في الحياة الزوجية معه لأسباب تتعلق بعدم التوافق والانسجام بينهما، وأنها مستعدة لرد المهر والتنازل عن حقوقها المالية مقابل الخلع.<br><br>
+                    
+                    <strong>الأسانيد القانونية:</strong><br>
+                    - قانون الأحوال الشخصية<br>
+                    - أحكام الشريعة الإسلامية في الخلع<br>
+                    - شهادة الشهود على حالة عدم التوافق<br><br>
+                    
+                    <strong>التسبيب:</strong><br>
+                    حيث إن الخلع حق مشروع للزوجة عند تعذر استمرار الحياة الزوجية، وحيث إن المدعية أثبتت جديتها في طلب الخلع وعدم إمكانية استمرار الحياة الزوجية، وحيث إنها أبدت استعدادها لرد المهر والتنازل عن حقوقها المالية.<br><br>
+                    
+                    <strong>منطوق الحكم:</strong><br>
+                    حكمت المحكمة بالخلع وإنهاء الرابطة الزوجية بين الطرفين مقابل رد المهر والتنازل عن الحقوق المالية.
+                </div>
+                <div class="judgment-meta">
+                    <span><i class="fas fa-calendar"></i> تاريخ الإضافة: 2024</span>
+                    <span><i class="fas fa-tag"></i> قانون شرعي</span>
+                </div>
+            </div>
+
+            <!-- مسودة حكم غرامات التأخير -->
+            <div class="judgment-card" data-keywords="غرامة تأخير عقد تجاري التزام">
+                <h3 class="judgment-title">
+                    <i class="fas fa-clock"></i>
+                    غرامات التأخير
+                </h3>
+                <div class="judgment-content">
+                    <strong>الموضوع:</strong> دعوى مطالبة بغرامات تأخير<br><br>
+                    
+                    <strong>الوقائع:</strong><br>
+                    يطالب المدعي المدعى عليه بدفع مبلغ وقدره (...) ريال عماني كغرامة تأخير عن عدم تنفيذ التزاماته التعاقدية في الموعد المحدد، حيث تأخر المدعى عليه في تسليم الأعمال المطلوبة منه لمدة (...) يوماً عن الموعد المتفق عليه في العقد.<br><br>
+                    
+                    <strong>الأسانيد القانونية:</strong><br>
+                    - العقد المبرم بين الطرفين والذي ينص على غرامة التأخير<br>
+                    - قانون المعاملات المدنية - أحكام الالتزامات<br>
+                    - المراسلات التي تثبت التأخير<br><br>
+                    
+                    <strong>التسبيب:</strong><br>
+                    حيث إن غرامة التأخير المتفق عليها في العقد تعتبر تعويضاً مقدراً مسبقاً عن الضرر الناجم عن التأخير، وحيث إن المدعى عليه لم ينفذ التزاماته في الموعد المحدد دون مبرر مقبول، وحيث إن الغرامة المتفق عليها معقولة ومتناسبة مع طبيعة الالتزام.<br><br>
+                    
+                    <strong>منطوق الحكم:</strong><br>
+                    حكمت المحكمة بإلزام المدعى عليه بدفع غرامة التأخير المطالب بها للمدعي.
+                </div>
+                <div class="judgment-meta">
+                    <span><i class="fas fa-calendar"></i> تاريخ الإضافة: 2024</span>
+                    <span><i class="fas fa-tag"></i> قانون تجاري</span>
+                </div>
+            </div>
+
+            <!-- مسودة حكم مطالبة مالية -->
+            <div class="judgment-card" data-keywords="مطالبة مالية دين التزام مدني">
+                <h3 class="judgment-title">
+                    <i class="fas fa-money-bill"></i>
+                    مطالبة مالية
+                </h3>
+                <div class="judgment-content">
+                    <strong>الموضوع:</strong> دعوى مطالبة بمبلغ مالي<br><br>
+                    
+                    <strong>الوقائع:</strong><br>
+                    يطالب المدعي المدعى عليه بدفع مبلغ وقدره (...) ريال عماني، مدعياً أن هذا المبلغ يمثل ديناً في ذمة المدعى عليه نشأ عن (...) وأن المدعى عليه امتنع عن سداد هذا المبلغ رغم المطالبة والإنذار.<br><br>
+                    
+                    <strong>الأسانيد القانونية:</strong><br>
+                    - المستندات المثبتة للدين<br>
+                    - قانون المعاملات المدنية<br>
+                    - إنذار المدعى عليه بالسداد<br><br>
+                    
+                    <strong>منطوق الحكم:</strong><br>
+                    حكمت المحكمة بإلزام المدعى عليه بدفع المبلغ المطالب به للمدعي مع الفوائد القانونية من تاريخ الاستحقاق.
+                </div>
+                <div class="judgment-meta">
+                    <span><i class="fas fa-calendar"></i> تاريخ الإضافة: 2024</span>
+                    <span><i class="fas fa-tag"></i> قانون مدني</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // وظيفة البحث
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const judgmentCards = document.querySelectorAll('.judgment-card');
+            
+            judgmentCards.forEach(card => {
+                const title = card.querySelector('.judgment-title').textContent.toLowerCase();
+                const content = card.querySelector('.judgment-content').textContent.toLowerCase();
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm) || keywords.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

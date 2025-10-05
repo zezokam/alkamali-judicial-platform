@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة النفقة التقديرية - المرجع القضائي</title>
+    
+    <!-- Google Fonts - Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 900;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .calculator-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(30, 60, 114, 0.2);
+            border-radius: 15px;
+            font-size: 18px;
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #1e3c72;
+            box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(30, 60, 114, 0.2);
+            border-radius: 15px;
+            font-size: 18px;
+            font-family: 'Tajawal', sans-serif;
+            background: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3);
+        }
+
+        .result-section {
+            background: rgba(39, 174, 96, 0.1);
+            border: 2px solid #27ae60;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .result-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(39, 174, 96, 0.2);
+            font-size: 18px;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 20px;
+            color: #27ae60;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1e3c72;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid #1e3c72;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background: #1e3c72;
+            color: white;
+        }
+
+        .note {
+            background: rgba(255, 193, 7, 0.1);
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #856404;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .page-title {
+                font-size: 28px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .calculator-card {
+                padding: 25px 20px;
+            }
+
+            .form-input, .form-select {
+                font-size: 16px;
+                padding: 12px 15px;
+            }
+
+            .calculate-btn {
+                font-size: 18px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-btn">
+            <i class="fas fa-arrow-right"></i>
+            العودة للرئيسية
+        </a>
+
+        <div class="header">
+            <h1 class="page-title">
+                <i class="fas fa-hand-holding-usd"></i>
+                حاسبة النفقة التقديرية
+            </h1>
+            <p>احسب النفقة التقديرية وفقاً للقوانين المعمول بها</p>
+        </div>
+
+        <div class="calculator-card">
+            <form id="alimonyForm">
+                <div class="form-group">
+                    <label class="form-label">راتب المنفق الشهري (ريال عماني)</label>
+                    <input type="number" class="form-input" id="salary" placeholder="أدخل الراتب الشهري" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">عدد الأطفال</label>
+                    <input type="number" class="form-input" id="children" placeholder="أدخل عدد الأطفال" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">نفقة الزوجة</label>
+                    <select class="form-select" id="wifeAlimony" required>
+                        <option value="">اختر الحالة</option>
+                        <option value="yes">تستحق نفقة</option>
+                        <option value="no">لا تستحق نفقة</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">نوع السكن</label>
+                    <select class="form-select" id="housing" required>
+                        <option value="">اختر نوع السكن</option>
+                        <option value="rent">إيجار</option>
+                        <option value="owned">ملك</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="rentGroup" style="display: none;">
+                    <label class="form-label">قيمة الإيجار الشهري (ريال عماني)</label>
+                    <input type="number" class="form-input" id="rentAmount" placeholder="أدخل قيمة الإيجار">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">المصاريف الإضافية الشهرية</label>
+                    <input type="number" class="form-input" id="additionalExpenses" placeholder="مصاريف طبية، تعليمية، إلخ" value="0">
+                </div>
+
+                <button type="submit" class="calculate-btn">
+                    <i class="fas fa-calculator"></i>
+                    احسب النفقة
+                </button>
+            </form>
+
+            <div id="resultSection" class="result-section">
+                <h3 class="result-title">نتيجة الحساب</h3>
+                <div id="resultDetails"></div>
+            </div>
+
+            <div class="note">
+                <strong>ملاحظة:</strong> هذه الحاسبة تقدم تقديراً أولياً للنفقة بناءً على المعايير العامة. النفقة الفعلية تحدد من قبل المحكمة بناءً على ظروف كل حالة على حدة.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('housing').addEventListener('change', function() {
+            const rentGroup = document.getElementById('rentGroup');
+            if (this.value === 'rent') {
+                rentGroup.style.display = 'block';
+                document.getElementById('rentAmount').required = true;
+            } else {
+                rentGroup.style.display = 'none';
+                document.getElementById('rentAmount').required = false;
+                document.getElementById('rentAmount').value = '';
+            }
+        });
+
+        document.getElementById('alimonyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const salary = parseFloat(document.getElementById('salary').value);
+            const children = parseInt(document.getElementById('children').value);
+            const wifeAlimony = document.getElementById('wifeAlimony').value;
+            const housing = document.getElementById('housing').value;
+            const rentAmount = parseFloat(document.getElementById('rentAmount').value) || 0;
+            const additionalExpenses = parseFloat(document.getElementById('additionalExpenses').value) || 0;
+
+            // حساب النفقة الأساسية للأطفال (15-25% من الراتب حسب العدد)
+            let childrenAlimonyRate = 0;
+            if (children === 1) childrenAlimonyRate = 0.15;
+            else if (children === 2) childrenAlimonyRate = 0.20;
+            else if (children >= 3) childrenAlimonyRate = 0.25;
+
+            const childrenAlimony = salary * childrenAlimonyRate;
+
+            // حساب نفقة الزوجة (10-15% من الراتب إذا كانت تستحق)
+            const wifeAlimonyAmount = wifeAlimony === 'yes' ? salary * 0.125 : 0;
+
+            // حساب نفقة السكن
+            let housingAlimony = 0;
+            if (housing === 'rent') {
+                housingAlimony = rentAmount;
+            } else if (housing === 'owned') {
+                housingAlimony = salary * 0.10; // 10% من الراتب للسكن المملوك
+            }
+
+            // إجمالي النفقة
+            const totalAlimony = childrenAlimony + wifeAlimonyAmount + housingAlimony + additionalExpenses;
+
+            // عرض النتائج
+            const resultDetails = document.getElementById('resultDetails');
+            resultDetails.innerHTML = `
+                <div class="result-item">
+                    <span>نفقة الأطفال (${children} طفل):</span>
+                    <span>${childrenAlimony.toFixed(2)} ريال</span>
+                </div>
+                <div class="result-item">
+                    <span>نفقة الزوجة:</span>
+                    <span>${wifeAlimonyAmount.toFixed(2)} ريال</span>
+                </div>
+                <div class="result-item">
+                    <span>نفقة السكن:</span>
+                    <span>${housingAlimony.toFixed(2)} ريال</span>
+                </div>
+                <div class="result-item">
+                    <span>المصاريف الإضافية:</span>
+                    <span>${additionalExpenses.toFixed(2)} ريال</span>
+                </div>
+                <div class="result-item">
+                    <span>إجمالي النفقة الشهرية:</span>
+                    <span>${totalAlimony.toFixed(2)} ريال</span>
+                </div>
+            `;
+
+            document.getElementById('resultSection').style.display = 'block';
+            document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
