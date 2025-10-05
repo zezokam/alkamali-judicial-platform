@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة مكافأة نهاية الخدمة - المرجع القضائي</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="حاسبة دقيقة لحساب مكافأة نهاية الخدمة وفقاً لقانون العمل العماني الجديد والقديم">
+    <meta name="keywords" content="مكافأة نهاية الخدمة، قانون العمل، حاسبة، عمان، راتب">
+    
+    <!-- Google Fonts - Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <div class="logo">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1 class="brand-title">المرجع القضائي</h1>
+                        <p class="brand-subtitle">القاضي عزان الكمالي</p>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link"><i class="fas fa-book-open"></i> المراجع القانونية <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../legal-sections/civil-law.html">القانون المدني</a></li>
+                            <li><a href="../legal-sections/criminal-law.html">القانون الجزائي</a></li>
+                            <li><a href="../legal-sections/commercial-law.html">القانون التجاري</a></li>
+                            <li><a href="../legal-sections/sharia-law.html">القانون الشرعي</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-link active"><i class="fas fa-calculator"></i> الحاسبات <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="end-service.html">حاسبة مكافأة نهاية الخدمة</a></li>
+                            <li><a href="alimony.html">حاسبة النفقة التقديرية</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section" style="background: var(--bg-secondary); padding: var(--spacing-md) 0;">
+        <div class="container">
+            <nav class="breadcrumb">
+                <div class="breadcrumb-item">
+                    <a href="../../index.html" class="breadcrumb-link">الرئيسية</a>
+                </div>
+                <div class="breadcrumb-item">
+                    <span class="breadcrumb-current">حاسبة مكافأة نهاية الخدمة</span>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: var(--primary-gradient); color: var(--text-white); padding: var(--spacing-2xl) 0;">
+        <div class="container">
+            <div class="page-header-content" style="text-align: center;">
+                <div class="page-icon" style="width: 100px; height: 100px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-lg); font-size: var(--font-size-3xl);">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h1 class="page-title" style="font-size: var(--font-size-4xl); margin-bottom: var(--spacing-md);">حاسبة مكافأة نهاية الخدمة</h1>
+                <p class="page-description" style="font-size: var(--font-size-lg); opacity: 0.9; max-width: 600px; margin: 0 auto;">
+                    احسب مكافأة نهاية الخدمة بدقة وفقاً لقانون العمل العماني الجديد والقديم
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content" style="padding: var(--spacing-3xl) 0;">
+        <div class="container">
+            <div class="calculator-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-2xl); align-items: start;">
+                
+                <!-- Calculator Form -->
+                <div class="calculator-card card-elevated">
+                    <div class="card-header">
+                        <h2 style="color: var(--primary-color); margin: 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                            <i class="fas fa-edit"></i>
+                            بيانات الحساب
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <form id="endServiceForm" class="calculator-form">
+                            <!-- نوع القانون -->
+                            <div class="form-group">
+                                <label class="form-label" for="lawType">
+                                    <i class="fas fa-balance-scale"></i>
+                                    نوع القانون المطبق
+                                </label>
+                                <div class="radio-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
+                                    <label class="radio-option" style="display: flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-md); border: 2px solid var(--border-color); border-radius: var(--border-radius); cursor: pointer; transition: var(--transition-fast);">
+                                        <input type="radio" name="lawType" value="new" checked style="margin: 0;">
+                                        <span>القانون الجديد</span>
+                                    </label>
+                                    <label class="radio-option" style="display: flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-md); border: 2px solid var(--border-color); border-radius: var(--border-radius); cursor: pointer; transition: var(--transition-fast);">
+                                        <input type="radio" name="lawType" value="old" style="margin: 0;">
+                                        <span>القانون القديم</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- تاريخ بدء العمل -->
+                            <div class="form-group">
+                                <label class="form-label" for="startDate">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    تاريخ بدء العمل
+                                </label>
+                                <input type="date" id="startDate" name="startDate" class="form-input" required>
+                            </div>
+
+                            <!-- تاريخ انتهاء العمل -->
+                            <div class="form-group">
+                                <label class="form-label" for="endDate">
+                                    <i class="fas fa-calendar-minus"></i>
+                                    تاريخ انتهاء العمل
+                                </label>
+                                <input type="date" id="endDate" name="endDate" class="form-input" required>
+                            </div>
+
+                            <!-- الراتب الشهري الأساسي -->
+                            <div class="form-group">
+                                <label class="form-label" for="basicSalary">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    الراتب الشهري الأساسي (ريال عماني)
+                                </label>
+                                <input type="number" id="basicSalary" name="basicSalary" class="form-input" placeholder="مثال: 1000" min="0" step="0.01" required>
+                            </div>
+
+                            <!-- البدلات الثابتة -->
+                            <div class="form-group">
+                                <label class="form-label" for="allowances">
+                                    <i class="fas fa-plus-circle"></i>
+                                    البدلات الثابتة (ريال عماني)
+                                </label>
+                                <input type="number" id="allowances" name="allowances" class="form-input" placeholder="مثال: 200" min="0" step="0.01" value="0">
+                                <small class="form-help">البدلات التي تُدفع بشكل ثابت شهرياً</small>
+                            </div>
+
+                            <!-- سبب انتهاء الخدمة -->
+                            <div class="form-group">
+                                <label class="form-label" for="terminationReason">
+                                    <i class="fas fa-question-circle"></i>
+                                    سبب انتهاء الخدمة
+                                </label>
+                                <select id="terminationReason" name="terminationReason" class="form-input" required>
+                                    <option value="">اختر السبب</option>
+                                    <option value="resignation">استقالة الموظف</option>
+                                    <option value="termination">إنهاء من قبل صاحب العمل</option>
+                                    <option value="contract_end">انتهاء عقد محدد المدة</option>
+                                    <option value="retirement">تقاعد</option>
+                                    <option value="death">وفاة</option>
+                                    <option value="disability">عجز</option>
+                                </select>
+                            </div>
+
+                            <!-- أزرار التحكم -->
+                            <div class="form-actions" style="display: flex; gap: var(--spacing-md); margin-top: var(--spacing-xl);">
+                                <button type="submit" class="btn btn-primary" style="flex: 1;">
+                                    <i class="fas fa-calculator"></i>
+                                    احسب المكافأة
+                                </button>
+                                <button type="reset" class="btn btn-secondary">
+                                    <i class="fas fa-redo"></i>
+                                    إعادة تعيين
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="results-card card-elevated">
+                    <div class="card-header">
+                        <h2 style="color: var(--primary-color); margin: 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                            <i class="fas fa-chart-line"></i>
+                            نتائج الحساب
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <div id="resultsContainer" class="results-container">
+                            <div class="empty-state" style="text-align: center; padding: var(--spacing-3xl) var(--spacing-lg); color: var(--text-secondary);">
+                                <i class="fas fa-calculator" style="font-size: var(--font-size-4xl); margin-bottom: var(--spacing-lg); opacity: 0.3;"></i>
+                                <p style="margin: 0; font-size: var(--font-size-lg);">قم بملء البيانات أعلاه للحصول على النتائج</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legal Information -->
+            <section class="legal-info" style="margin-top: var(--spacing-3xl);">
+                <div class="info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: var(--spacing-xl);">
+                    
+                    <!-- القانون الجديد -->
+                    <div class="info-card card-elevated">
+                        <div class="card-header">
+                            <h3 style="color: var(--primary-color); margin: 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                                <i class="fas fa-file-alt"></i>
+                                القانون الجديد (2023)
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="law-details">
+                                <h4 style="color: var(--secondary-color); margin-bottom: var(--spacing-md);">معدل الحساب:</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 var(--spacing-lg);">
+                                    <li style="display: flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-xs) 0;">
+                                        <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                                        <span><strong>السنوات الخمس الأولى:</strong> نصف راتب شهر عن كل سنة</span>
+                                    </li>
+                                    <li style="display: flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-xs) 0;">
+                                        <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                                        <span><strong>ما زاد عن خمس سنوات:</strong> راتب شهر كامل عن كل سنة</span>
+                                    </li>
+                                </ul>
+                                
+                                <h4 style="color: var(--secondary-color); margin-bottom: var(--spacing-md);">الحد الأقصى:</h4>
+                                <p style="text-align: justify; line-height: var(--line-height-relaxed); margin: 0; padding: var(--spacing-md); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                                    لا تتجاوز المكافأة راتب 18 شهراً مهما بلغت مدة الخدمة
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- القانون القديم -->
+                    <div class="info-card card-elevated">
+                        <div class="card-header">
+                            <h3 style="color: var(--primary-color); margin: 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                                <i class="fas fa-file"></i>
+                                القانون القديم (2003)
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="law-details">
+                                <h4 style="color: var(--secondary-color); margin-bottom: var(--spacing-md);">معدل الحساب:</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 var(--spacing-lg);">
+                                    <li style="display: flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-xs) 0;">
+                                        <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                                        <span><strong>السنوات الثلاث الأولى:</strong> نصف راتب شهر عن كل سنة</span>
+                                    </li>
+                                    <li style="display: flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-xs) 0;">
+                                        <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                                        <span><strong>ما زاد عن ثلاث سنوات:</strong> راتب شهر كامل عن كل سنة</span>
+                                    </li>
+                                </ul>
+                                
+                                <h4 style="color: var(--secondary-color); margin-bottom: var(--spacing-md);">الحد الأقصى:</h4>
+                                <p style="text-align: justify; line-height: var(--line-height-relaxed); margin: 0; padding: var(--spacing-md); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                                    لا تتجاوز المكافأة راتب 15 شهراً مهما بلغت مدة الخدمة
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Important Notes -->
+                <div class="notes-section" style="margin-top: var(--spacing-2xl);">
+                    <div class="notes-card card-elevated">
+                        <div class="card-header">
+                            <h3 style="color: var(--primary-color); margin: 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                ملاحظات مهمة
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="notes-grid" style="display: grid; gap: var(--spacing-md);">
+                                <div class="note-item" style="display: flex; align-items: flex-start; gap: var(--spacing-md); padding: var(--spacing-md); background: #fef3c7; border: 1px solid #fde68a; border-radius: var(--border-radius);">
+                                    <i class="fas fa-info-circle" style="color: #d97706; margin-top: var(--spacing-xs);"></i>
+                                    <p style="text-align: justify; line-height: var(--line-height-relaxed); margin: 0; color: #92400e;">
+                                        <strong>الراتب المعتبر:</strong> يشمل الراتب الأساسي والبدلات الثابتة التي تُدفع بانتظام، ولا يشمل البدلات المتغيرة أو المكافآت الاستثنائية.
+                                    </p>
+                                </div>
+                                
+                                <div class="note-item" style="display: flex; align-items: flex-start; gap: var(--spacing-md); padding: var(--spacing-md); background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: var(--border-radius);">
+                                    <i class="fas fa-calendar-alt" style="color: #059669; margin-top: var(--spacing-xs);"></i>
+                                    <p style="text-align: justify; line-height: var(--line-height-relaxed); margin: 0; color: #065f46;">
+                                        <strong>حساب المدة:</strong> تحسب المدة بالسنوات والأشهر، والكسور تُحسب بالتناسب (مثلاً: 6 أشهر = 0.5 سنة).
+                                    </p>
+                                </div>
+                                
+                                <div class="note-item" style="display: flex; align-items: flex-start; gap: var(--spacing-md); padding: var(--spacing-md); background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--border-radius);">
+                                    <i class="fas fa-exclamation-triangle" style="color: #dc2626; margin-top: var(--spacing-xs);"></i>
+                                    <p style="text-align: justify; line-height: var(--line-height-relaxed); margin: 0; color: #991b1b;">
+                                        <strong>حالات خاصة:</strong> قد تختلف المكافأة في حالات الفصل التأديبي أو الاستقالة قبل إكمال سنة واحدة، يُرجى مراجعة قانون العمل للتفاصيل.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div>
+                            <h3>المرجع القضائي</h3>
+                            <p>منصة قانونية متكاملة</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        مرجع شامل للمختصين والمهتمين في المجال القانوني، يقدم أدوات ومراجع 
+                        متخصصة لتسهيل العمل القضائي والقانوني.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>الروابط السريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">الرئيسية</a></li>
+                        <li><a href="../legal-sections/civil-law.html">القانون المدني</a></li>
+                        <li><a href="../legal-sections/criminal-law.html">القانون الجزائي</a></li>
+                        <li><a href="../legal-sections/commercial-law.html">القانون التجاري</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>الحاسبات</h4>
+                    <ul class="footer-links">
+                        <li><a href="end-service.html">حاسبة مكافأة نهاية الخدمة</a></li>
+                        <li><a href="alimony.html">حاسبة النفقة التقديرية</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@alkamali-judicial.com</p>
+                        <p><i class="fas fa-globe"></i> alkamali.uk</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 القاضي عزان الكمالي - جميع الحقوق محفوظة</p>
+                </div>
+                <div class="footer-credits">
+                    <p>تم التطوير بواسطة <strong>Manus AI</strong></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="../../js/main.js"></script>
+    
+    <!-- Calculator JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('endServiceForm');
+            const resultsContainer = document.getElementById('resultsContainer');
+            
+            // Radio button styling
+            const radioOptions = document.querySelectorAll('.radio-option');
+            radioOptions.forEach(option => {
+                const radio = option.querySelector('input[type="radio"]');
+                
+                option.addEventListener('click', function() {
+                    radioOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+                
+                if (radio.checked) {
+                    option.classList.add('selected');
+                }
+            });
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateEndServiceBenefit();
+            });
+            
+            // Form reset
+            form.addEventListener('reset', function() {
+                setTimeout(() => {
+                    resultsContainer.innerHTML = `
+                        <div class="empty-state" style="text-align: center; padding: var(--spacing-3xl) var(--spacing-lg); color: var(--text-secondary);">
+                            <i class="fas fa-calculator" style="font-size: var(--font-size-4xl); margin-bottom: var(--spacing-lg); opacity: 0.3;"></i>
+                            <p style="margin: 0; font-size: var(--font-size-lg);">قم بملء البيانات أعلاه للحصول على النتائج</p>
+                        </div>
+                    `;
+                    radioOptions.forEach(opt => opt.classList.remove('selected'));
+                    radioOptions[0].classList.add('selected');
+                }, 100);
+            });
+            
+            function calculateEndServiceBenefit() {
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                // Validate required fields
+                if (!data.startDate || !data.endDate || !data.basicSalary || !data.terminationReason) {
+                    showAlert('يرجى ملء جميع الحقول المطلوبة', 'error');
+                    return;
+                }
+                
+                const startDate = new Date(data.startDate);
+                const endDate = new Date(data.endDate);
+                const basicSalary = parseFloat(data.basicSalary);
+                const allowances = parseFloat(data.allowances) || 0;
+                const totalSalary = basicSalary + allowances;
+                
+                // Validate dates
+                if (endDate <= startDate) {
+                    showAlert('تاريخ انتهاء العمل يجب أن يكون بعد تاريخ بدء العمل', 'error');
+                    return;
+                }
+                
+                // Calculate service period
+                const servicePeriod = calculateServicePeriod(startDate, endDate);
+                
+                // Calculate benefit based on law type
+                const benefit = data.lawType === 'new' 
+                    ? calculateNewLawBenefit(servicePeriod, totalSalary)
+                    : calculateOldLawBenefit(servicePeriod, totalSalary);
+                
+                // Apply termination reason adjustments
+                const finalBenefit = applyTerminationAdjustments(benefit, data.terminationReason, servicePeriod);
+                
+                // Display results
+                displayResults({
+                    lawType: data.lawType,
+                    servicePeriod,
+                    basicSalary,
+                    allowances,
+                    totalSalary,
+                    benefit,
+                    finalBenefit,
+                    terminationReason: data.terminationReason
+                });
+            }
+            
+            function calculateServicePeriod(startDate, endDate) {
+                const years = endDate.getFullYear() - startDate.getFullYear();
+                const months = endDate.getMonth() - startDate.getMonth();
+                const days = endDate.getDate() - startDate.getDate();
+                
+                let totalYears = years;
+                let totalMonths = months;
+                
+                if (days < 0) {
+                    totalMonths--;
+                }
+                
+                if (totalMonths < 0) {
+                    totalYears--;
+                    totalMonths += 12;
+                }
+                
+                const totalYearsDecimal = totalYears + (totalMonths / 12);
+                
+                return {
+                    years: totalYears,
+                    months: totalMonths,
+                    totalYears: totalYearsDecimal,
+                    totalDays: Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24))
+                };
+            }
+            
+            function calculateNewLawBenefit(servicePeriod, totalSalary) {
+                let benefit = 0;
+                const totalYears = servicePeriod.totalYears;
+                
+                if (totalYears <= 5) {
+                    // First 5 years: half month salary per year
+                    benefit = totalYears * 0.5 * totalSalary;
+                } else {
+                    // First 5 years: half month salary per year
+                    benefit = 5 * 0.5 * totalSalary;
+                    // Remaining years: full month salary per year
+                    benefit += (totalYears - 5) * totalSalary;
+                }
+                
+                // Maximum cap: 18 months
+                const maxBenefit = 18 * totalSalary;
+                return Math.min(benefit, maxBenefit);
+            }
+            
+            function calculateOldLawBenefit(servicePeriod, totalSalary) {
+                let benefit = 0;
+                const totalYears = servicePeriod.totalYears;
+                
+                if (totalYears <= 3) {
+                    // First 3 years: half month salary per year
+                    benefit = totalYears * 0.5 * totalSalary;
+                } else {
+                    // First 3 years: half month salary per year
+                    benefit = 3 * 0.5 * totalSalary;
+                    // Remaining years: full month salary per year
+                    benefit += (totalYears - 3) * totalSalary;
+                }
+                
+                // Maximum cap: 15 months
+                const maxBenefit = 15 * totalSalary;
+                return Math.min(benefit, maxBenefit);
+            }
+            
+            function applyTerminationAdjustments(benefit, reason, servicePeriod) {
+                // In some cases, benefit might be reduced based on termination reason
+                // This is a simplified implementation - actual rules may vary
+                
+                switch (reason) {
+                    case 'resignation':
+                        // Full benefit if service > 1 year, proportional if less
+                        return servicePeriod.totalYears >= 1 ? benefit : benefit * servicePeriod.totalYears;
+                    
+                    case 'termination':
+                        // May depend on reason for termination - assuming full benefit here
+                        return benefit;
+                    
+                    case 'contract_end':
+                    case 'retirement':
+                    case 'death':
+                    case 'disability':
+                        // Full benefit
+                        return benefit;
+                    
+                    default:
+                        return benefit;
+                }
+            }
+            
+            function displayResults(results) {
+                const lawTypeText = results.lawType === 'new' ? 'القانون الجديد (2023)' : 'القانون القديم (2003)';
+                const terminationReasonText = getTerminationReasonText(results.terminationReason);
+                
+                resultsContainer.innerHTML = `
+                    <div class="results-content">
+                        <!-- Summary Card -->
+                        <div class="result-summary" style="background: var(--primary-gradient); color: var(--text-white); padding: var(--spacing-xl); border-radius: var(--border-radius); margin-bottom: var(--spacing-lg); text-align: center;">
+                            <h3 style="margin: 0 0 var(--spacing-md); font-size: var(--font-size-xl);">إجمالي مكافأة نهاية الخدمة</h3>
+                            <div class="final-amount" style="font-size: var(--font-size-4xl); font-weight: 900; margin-bottom: var(--spacing-sm);">
+                                ${results.finalBenefit.toLocaleString('ar-OM', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} ر.ع
+                            </div>
+                            <p style="margin: 0; opacity: 0.9;">وفقاً لـ ${lawTypeText}</p>
+                        </div>
+                        
+                        <!-- Details Grid -->
+                        <div class="results-grid" style="display: grid; gap: var(--spacing-md);">
+                            <div class="result-item" style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-md); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                                <span style="color: var(--text-secondary);">مدة الخدمة:</span>
+                                <strong>${results.servicePeriod.years} سنة و ${results.servicePeriod.months} شهر</strong>
+                            </div>
+                            
+                            <div class="result-item" style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-md); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                                <span style="color: var(--text-secondary);">الراتب الأساسي:</span>
+                                <strong>${results.basicSalary.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                            </div>
+                            
+                            <div class="result-item" style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-md); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                                <span style="color: var(--text-secondary);">البدلات الثابتة:</span>
+                                <strong>${results.allowances.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                            </div>
+                            
+                            <div class="result-item" style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-md); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                                <span style="color: var(--text-secondary);">إجمالي الراتب المعتبر:</span>
+                                <strong>${results.totalSalary.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                            </div>
+                            
+                            <div class="result-item" style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-md); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                                <span style="color: var(--text-secondary);">سبب انتهاء الخدمة:</span>
+                                <strong>${terminationReasonText}</strong>
+                            </div>
+                            
+                            <div class="result-item" style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-md); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                                <span style="color: var(--text-secondary);">القانون المطبق:</span>
+                                <strong>${lawTypeText}</strong>
+                            </div>
+                        </div>
+                        
+                        <!-- Calculation Breakdown -->
+                        <div class="calculation-breakdown" style="margin-top: var(--spacing-lg); padding: var(--spacing-lg); background: var(--bg-secondary); border-radius: var(--border-radius);">
+                            <h4 style="color: var(--primary-color); margin: 0 0 var(--spacing-md);">تفاصيل الحساب:</h4>
+                            ${getCalculationBreakdown(results)}
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="result-actions" style="display: flex; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+                            <button onclick="printResults()" class="btn btn-secondary" style="flex: 1;">
+                                <i class="fas fa-print"></i>
+                                طباعة النتائج
+                            </button>
+                            <button onclick="shareResults()" class="btn btn-outline" style="flex: 1;">
+                                <i class="fas fa-share"></i>
+                                مشاركة
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            function getTerminationReasonText(reason) {
+                const reasons = {
+                    'resignation': 'استقالة الموظف',
+                    'termination': 'إنهاء من قبل صاحب العمل',
+                    'contract_end': 'انتهاء عقد محدد المدة',
+                    'retirement': 'تقاعد',
+                    'death': 'وفاة',
+                    'disability': 'عجز'
+                };
+                return reasons[reason] || reason;
+            }
+            
+            function getCalculationBreakdown(results) {
+                const lawType = results.lawType;
+                const totalYears = results.servicePeriod.totalYears;
+                
+                if (lawType === 'new') {
+                    if (totalYears <= 5) {
+                        return `
+                            <p style="text-align: justify; line-height: var(--line-height-relaxed); margin: 0;">
+                                ${totalYears.toFixed(2)} سنة × 0.5 شهر × ${results.totalSalary.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع = 
+                                <strong>${results.benefit.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                            </p>
+                        `;
+                    } else {
+                        const firstPart = 5 * 0.5 * results.totalSalary;
+                        const secondPart = (totalYears - 5) * results.totalSalary;
+                        return `
+                            <div style="line-height: var(--line-height-relaxed);">
+                                <p style="margin: 0 0 var(--spacing-sm);">
+                                    السنوات الخمس الأولى: 5 × 0.5 × ${results.totalSalary.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} = 
+                                    <strong>${firstPart.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                                </p>
+                                <p style="margin: 0 0 var(--spacing-sm);">
+                                    الباقي: ${(totalYears - 5).toFixed(2)} × 1 × ${results.totalSalary.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} = 
+                                    <strong>${secondPart.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                                </p>
+                                <p style="margin: 0; padding-top: var(--spacing-sm); border-top: 1px solid var(--border-color);">
+                                    الإجمالي: <strong>${results.benefit.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                                </p>
+                            </div>
+                        `;
+                    }
+                } else {
+                    if (totalYears <= 3) {
+                        return `
+                            <p style="text-align: justify; line-height: var(--line-height-relaxed); margin: 0;">
+                                ${totalYears.toFixed(2)} سنة × 0.5 شهر × ${results.totalSalary.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع = 
+                                <strong>${results.benefit.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                            </p>
+                        `;
+                    } else {
+                        const firstPart = 3 * 0.5 * results.totalSalary;
+                        const secondPart = (totalYears - 3) * results.totalSalary;
+                        return `
+                            <div style="line-height: var(--line-height-relaxed);">
+                                <p style="margin: 0 0 var(--spacing-sm);">
+                                    السنوات الثلاث الأولى: 3 × 0.5 × ${results.totalSalary.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} = 
+                                    <strong>${firstPart.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                                </p>
+                                <p style="margin: 0 0 var(--spacing-sm);">
+                                    الباقي: ${(totalYears - 3).toFixed(2)} × 1 × ${results.totalSalary.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} = 
+                                    <strong>${secondPart.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                                </p>
+                                <p style="margin: 0; padding-top: var(--spacing-sm); border-top: 1px solid var(--border-color);">
+                                    الإجمالي: <strong>${results.benefit.toLocaleString('ar-OM', { minimumFractionDigits: 3 })} ر.ع</strong>
+                                </p>
+                            </div>
+                        `;
+                    }
+                }
+            }
+            
+            // Global functions for buttons
+            window.printResults = function() {
+                window.print();
+            };
+            
+            window.shareResults = function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'نتائج حاسبة مكافأة نهاية الخدمة',
+                        text: 'تم حساب مكافأة نهاية الخدمة باستخدام المرجع القضائي',
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback: copy to clipboard
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        showAlert('تم نسخ الرابط إلى الحافظة', 'success');
+                    });
+                }
+            };
+            
+            function showAlert(message, type = 'info') {
+                // Use the global alert function from main.js
+                if (window.JudicialPlatform && window.JudicialPlatform.showAlert) {
+                    window.JudicialPlatform.showAlert(message, type);
+                } else {
+                    alert(message);
+                }
+            }
+        });
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        .calculator-layout {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+        }
+        
+        @media (max-width: 991px) {
+            .calculator-layout {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-base);
+            transition: var(--transition-fast);
+            background: var(--bg-primary);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .form-label i {
+            color: var(--primary-color);
+            margin-left: var(--spacing-sm);
+        }
+        
+        .form-help {
+            display: block;
+            margin-top: var(--spacing-xs);
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+        
+        .radio-option.selected {
+            border-color: var(--primary-color);
+            background: rgba(59, 130, 246, 0.05);
+        }
+        
+        .radio-option:hover {
+            border-color: var(--primary-color);
+            background: rgba(59, 130, 246, 0.02);
+        }
+        
+        .results-content {
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-summary {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .result-summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            pointer-events: none;
+        }
+        
+        .final-amount {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .result-item:hover {
+            background: var(--bg-tertiary);
+            transform: translateX(-2px);
+        }
+        
+        .calculation-breakdown {
+            border-right: 4px solid var(--secondary-color);
+        }
+        
+        @media print {
+            .form-actions,
+            .result-actions,
+            .header,
+            .footer {
+                display: none !important;
+            }
+            
+            .calculator-layout {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .calculator-card {
+                display: none !important;
+            }
+        }
+    </style>
+</body>
+</html>
