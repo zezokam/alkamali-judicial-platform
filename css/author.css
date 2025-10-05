@@ -1,0 +1,47 @@
+/* تنسيقات خاصة بصفحة عن القاضي عزان الكمالي */
+
+.about-author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.author-image {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.author-image img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.author-bio {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* تنسيقات للشاشات المتوسطة والكبيرة */
+@media (min-width: 768px) {
+    .about-author {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    
+    .author-image {
+        width: auto;
+        margin-left: 2rem;
+        margin-bottom: 0;
+    }
+    
+    .author-bio {
+        text-align: right;
+    }
+}

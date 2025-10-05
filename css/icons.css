@@ -1,0 +1,150 @@
+/* تحسين مظهر الصور في البطاقات */
+.card-img {
+  width: 100%;
+  height: 200px;
+  background-color: #D2B48C;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.calculator-icon {
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.calculator-screen {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: right;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.button {
+  background-color: #8B6E4E;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.references-icon {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.book {
+  width: 70%;
+  height: 40px;
+  background-color: #8B6E4E;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.book:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 80%;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.book:before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 10px;
+  width: 60%;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.legal-icon {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scale {
+  width: 80%;
+  height: 60%;
+  position: relative;
+}
+
+.scale-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #8B6E4E;
+  position: absolute;
+  top: 0;
+  border-radius: 5px;
+}
+
+.scale-stand {
+  width: 10px;
+  height: 100px;
+  background-color: #8B6E4E;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+
+.scale-base {
+  width: 60%;
+  height: 15px;
+  background-color: #8B6E4E;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+
+.scale-pan-left, .scale-pan-right {
+  width: 40px;
+  height: 10px;
+  background-color: #6D563C;
+  position: absolute;
+  top: 40px;
+  border-radius: 50%;
+}
+
+.scale-pan-left {
+  left: 20%;
+}
+
+.scale-pan-right {
+  right: 20%;
+}

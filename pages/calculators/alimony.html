@@ -8,8 +8,8 @@
     <!-- وسوم معاينة الرابط (Open Graph) -->
     <meta property="og:title" content="حاسبة النفقة التقديرية - المرجع القضائي" />
     <meta property="og:description" content="أداة استرشادية لحساب النفقة التقديرية للأبناء وفقاً لأحدث المعايير القضائية، مع الأخذ في الاعتبار أن التقدير النهائي يخضع للسلطة التقديرية للمحكمة." />
-    <meta property="og:image" content="https://alkamali.uk/images/thumbnails/alimony-calculator-og-image.jpg" />
-    <meta property="og:url" content="https://alkamali.uk/pages/alimony_calculator.html" />
+    <meta property="og:image" content="https://alkamali-judicial-platform.pages.dev/images/thumbnails/alimony-calculator-og-image.jpg" />
+    <meta property="og:url" content="https://alkamali-judicial-platform.pages.dev/pages/calculators/alimony.html" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ar_OM" />
     
@@ -19,9 +19,8 @@
     <meta name="twitter:description" content="أداة استرشادية لحساب النفقة التقديرية للأبناء وفقاً لأحدث المعايير القضائية، مع الأخذ في الاعتبار أن التقدير النهائي يخضع للسلطة التقديرية للمحكمة." />
     <meta name="twitter:image" content="https://alkamali.uk/images/thumbnails/alimony-calculator-og-image.jpg" />
     
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/components.css">
-    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
     <!-- Font Awesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts - Tajawal -->
@@ -316,59 +315,22 @@
 <body>
     <header>
         <nav class="navbar">
-            <a href="../../index.html" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-balance-scale"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>المرجع القضائي</h1>
-                    <span>القاضي عزان الكمالي</span>
-                </div>
+            <a href="../index.html" class="logo">
+                <img src="../images/final_logo.svg" alt="شعار المرجع القضائي" id="logo-placeholder">
+                <h1>المرجع القضائي</h1>
             </a>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="nav-menu" id="navMenu">
-                <a href="../../index.html" class="nav-link">
-                    <i class="fas fa-home"></i>
-                    <span>الرئيسية</span>
-                </a>
-                <div class="nav-dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">
-                        <i class="fas fa-book"></i>
-                        <span>المراجع القانونية</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="../legal-sections/civil-law-main.html">القانون المدني والتجاري</a>
-                        <a href="../legal-sections/criminal-law-main.html">القانون الجزائي والإجراءات</a>
-                        <a href="../legal-sections/sharia-law-main.html">قانون الأحوال الشخصية</a>
-                        <a href="../legal-sections/specialized-laws-main.html">التشريعات المتخصصة</a>
-                    </div>
-                </div>
-                <div class="nav-dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">
-                        <i class="fas fa-calculator"></i>
-                        <span>الحاسبات القانونية</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="end-service.html">حاسبة مكافأة نهاية الخدمة</a>
-                        <a href="alimony.html">حاسبة النفقة التقديرية</a>
-                    </div>
-                </div>
-                <div class="nav-dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">
-                        <i class="fas fa-database"></i>
-                        <span>قواعد البيانات</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="../databases/judgments.html">مسودات الأحكام</a>
-                        <a href="../databases/research.html">الأبحاث القانونية</a>
-                    </div>
-                </div>
-            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html"><i class="fas fa-home icon"></i>الرئيسية</a></li>
+                <li><a href="alimony_calculator.html"><i class="fas fa-money-bill-wave icon"></i>حاسبة النفقة التقديرية</a></li>
+                <li><a href="calculator.html"><i class="fas fa-calculator icon"></i>حاسبة مكافأة نهاية الخدمة</a></li>
+                <li><a href="https://azzan.notion.site/" target="_blank"><i class="fas fa-book icon"></i>مُعين: مراجع ونماذج قضائية</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle icon"></i>نبذة</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope icon"></i>تواصل معنا</a></li>
+                <li><a href="login.html"><i class="fas fa-user icon"></i>تسجيل الدخول</a></li>
+            </ul>
         </nav>
     </header>
 

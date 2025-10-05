@@ -5,220 +5,436 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المرجع القضائي - القاضي عزان الكمالي</title>
     
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
     <!-- Google Fonts - Tajawal -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text span {
+            font-size: 1rem;
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 0;
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .service-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .service-link {
+            color: #3498db;
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .service-link:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: #f8f9fa;
+                margin-top: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <div class="logo-text">
-                        <h1>المرجع القضائي</h1>
-                        <span>القاضي عزان الكمالي</span>
-                    </div>
-                </a>
-                
-                <button class="nav-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                
-                <div class="nav-menu" id="navMenu">
-                    <a href="index.html" class="nav-link">
-                        <i class="fas fa-home"></i>
-                        <span>الرئيسية</span>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>المرجع القضائي</h1>
+                    <span>القاضي عزان الكمالي</span>
+                </div>
+            </a>
+
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <div class="dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        المراجع القانونية
+                        <i class="fas fa-chevron-down"></i>
                     </a>
-                    <div class="nav-dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">
-                            <i class="fas fa-book"></i>
-                            <span>المراجع القانونية</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="pages/legal-sections/civil-law-main.html">القانون المدني والتجاري</a>
-                            <a href="pages/legal-sections/criminal-law-main.html">القانون الجزائي والإجراءات</a>
-                            <a href="pages/legal-sections/sharia-law-main.html">قانون الأحوال الشخصية</a>
-                            <a href="pages/legal-sections/specialized-laws-main.html">التشريعات المتخصصة</a>
-                        </div>
-                    </div>
-                    <div class="nav-dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">
-                            <i class="fas fa-calculator"></i>
-                            <span>الحاسبات القانونية</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="pages/calculators/end-service.html">حاسبة مكافأة نهاية الخدمة</a>
-                            <a href="pages/calculators/alimony.html">حاسبة النفقة التقديرية</a>
-                        </div>
-                    </div>
-                    <div class="nav-dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">
-                            <i class="fas fa-database"></i>
-                            <span>قواعد البيانات</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="pages/databases/judgments.html">مسودات الأحكام</a>
-                            <a href="pages/databases/research.html">الأبحاث القانونية</a>
-                        </div>
+                    <div class="dropdown-menu">
+                        <a href="pages/legal-sections/civil-law-main.html">القانون المدني والتجاري</a>
+                        <a href="pages/legal-sections/criminal-law-main.html">القانون الجزائي والإجراءات</a>
+                        <a href="pages/legal-sections/sharia-law-main.html">قانون الأحوال الشخصية</a>
+                        <a href="pages/legal-sections/specialized-laws-main.html">التشريعات المتخصصة</a>
                     </div>
                 </div>
-            </div>
-        </nav>
+
+                <div class="dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-calculator"></i>
+                        الحاسبات القانونية
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="pages/calculators/end-service.html">حاسبة مكافأة نهاية الخدمة</a>
+                        <a href="pages/calculators/alimony.html">حاسبة النفقة التقديرية</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-database"></i>
+                        قواعد البيانات
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="pages/databases/judgments.html">مسودات الأحكام</a>
+                        <a href="pages/databases/research.html">الأبحاث القانونية</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <main class="main">
-        <!-- Hero Section -->
+    <main class="main-content">
         <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">المرجع القضائي</h1>
-                    <p class="hero-subtitle">منصة قانونية متكاملة تقدم مجموعة من الأدوات والمراجع القضائية لمساعدة المختصين والمهتمين في المجال القانوني</p>
-                </div>
-            </div>
+            <h1>المرجع القضائي</h1>
+            <p>منصة قانونية متكاملة تقدم مجموعة من الأدوات والمراجع القضائية لمساعدة المختصين والمهتمين في المجال القانوني</p>
         </section>
 
-        <!-- Services Section -->
         <section class="services">
-            <div class="container">
-                <h2 class="section-title">خدماتنا</h2>
-                
-                <!-- Legal References -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>المراجع القانونية</h3>
-                        <p>مكتبة شاملة تضم جميع القوانين والتشريعات مقسمة بشكل منهجي ومنظم لسهولة الوصول والبحث السريع في المواد القانونية المختلفة.</p>
-                        <div class="service-features">
-                            <span class="feature">✓ القانون المدني والتجاري</span>
-                            <span class="feature">✓ القانون الجزائي والإجراءات</span>
-                            <span class="feature">✓ قانون الأحوال الشخصية</span>
-                            <span class="feature">✓ التشريعات المتخصصة</span>
-                        </div>
-                        <div class="service-links">
-                            <a href="pages/legal-sections/civil-law-main.html" class="service-link">القانون المدني والتجاري</a>
-                            <a href="pages/legal-sections/criminal-law-main.html" class="service-link">القانون الجزائي والإجراءات</a>
-                            <a href="pages/legal-sections/sharia-law-main.html" class="service-link">قانون الأحوال الشخصية</a>
-                            <a href="pages/legal-sections/specialized-laws-main.html" class="service-link">التشريعات المتخصصة</a>
-                        </div>
-                    </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-book"></i>
                 </div>
-
-                <!-- Legal Calculators -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>الحاسبات القانونية</h3>
-                        <p>أدوات حاسبة متخصصة ودقيقة لحساب المكافآت والنفقات وفقاً للقوانين المعمول بها، مع مراعاة جميع المتغيرات والظروف الخاصة.</p>
-                        <div class="calculator-grid">
-                            <a href="pages/calculators/end-service.html" class="calculator-card">
-                                <div class="calculator-icon">
-                                    <i class="fas fa-coins"></i>
-                                </div>
-                                <h4>حاسبة مكافأة نهاية الخدمة</h4>
-                                <p>أداة سهلة الاستخدام لحساب مكافأة نهاية الخدمة وفقاً للقانون العماني، تدعم كلاً من القانون الجديد والقديم.</p>
-                            </a>
-                            <a href="pages/calculators/alimony.html" class="calculator-card">
-                                <div class="calculator-icon">
-                                    <i class="fas fa-family"></i>
-                                </div>
-                                <h4>حاسبة النفقة التقديرية</h4>
-                                <p>أداة استرشادية لحساب النفقة التقديرية للأبناء وفقاً للمعايير المعتمدة، مع مراعاة الظروف الخاصة لكل حالة.</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Databases -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>قواعد البيانات</h3>
-                        <p>مجموعة شاملة من قواعد البيانات القانونية المنظمة والمحدثة باستمرار لتوفير مرجع موثوق للمختصين في المجال القانوني.</p>
-                        <div class="database-grid">
-                            <a href="pages/databases/judgments.html" class="database-card">
-                                <div class="database-icon">
-                                    <i class="fas fa-gavel"></i>
-                                </div>
-                                <h4>مسودات الأحكام</h4>
-                                <p>مجموعة من مسودات الأحكام القضائية المعدة مسبقاً لمختلف أنواع القضايا لتسهيل عمل القضاة والمحامين.</p>
-                            </a>
-                            <a href="pages/databases/research.html" class="database-card">
-                                <div class="database-icon">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                                <h4>الأبحاث القانونية</h4>
-                                <p>مكتبة شاملة من الأبحاث والدراسات القانونية المتخصصة والمراجع الأكاديمية في مختلف فروع القانون.</p>
-                            </a>
-                        </div>
-                    </div>
+                <h3>المراجع القانونية</h3>
+                <p>مكتبة شاملة تضم جميع القوانين والتشريعات مقسمة بشكل منهجي ومنظم لسهولة الوصول والبحث السريع في المواد القانونية المختلفة.</p>
+                <div class="service-links">
+                    <a href="pages/legal-sections/civil-law-main.html" class="service-link">القانون المدني والتجاري</a>
+                    <a href="pages/legal-sections/criminal-law-main.html" class="service-link">القانون الجزائي والإجراءات</a>
+                    <a href="pages/legal-sections/sharia-law-main.html" class="service-link">قانون الأحوال الشخصية</a>
+                    <a href="pages/legal-sections/specialized-laws-main.html" class="service-link">التشريعات المتخصصة</a>
                 </div>
             </div>
-        </section>
 
-        <!-- About Section -->
-        <section class="about">
-            <div class="container">
-                <div class="about-content">
-                    <h2 class="section-title">عن المرجع القضائي</h2>
-                    <p class="about-text">
-                        المرجع القضائي هو منصة قانونية متكاملة تهدف إلى تقديم مجموعة من الأدوات والمراجع القضائية لمساعدة المختصين والمهتمين في المجال القانوني. تم تأسيس هذه المنصة من قبل القاضي عزان الكمالي لتكون مرجعاً شاملاً يسهل الوصول إلى المعلومات القانونية والأدوات المساعدة.
-                    </p>
-                    <p class="about-text">
-                        تتميز المنصة بتوفير حاسبة مكافأة نهاية الخدمة التي تدعم كلاً من القانون الجديد والقديم، بالإضافة إلى مجموعة من المراجع والنماذج القضائية المنظمة بشكل سهل الاستخدام. كما تحتوي على قاعدة بيانات شاملة من مسودات الأحكام والأبحاث القانونية المتخصصة.
-                    </p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>الحاسبات القانونية</h3>
+                <p>أدوات حاسبة متخصصة ودقيقة لحساب المكافآت والنفقات وفقاً للقوانين المعمول بها، مع مراعاة جميع المتغيرات والظروف الخاصة.</p>
+                <div class="service-links">
+                    <a href="pages/calculators/end-service.html" class="service-link">حاسبة مكافأة نهاية الخدمة</a>
+                    <a href="pages/calculators/alimony.html" class="service-link">حاسبة النفقة التقديرية</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>قواعد البيانات</h3>
+                <p>مجموعة شاملة من قواعد البيانات القانونية المنظمة والمحدثة باستمرار لتوفير مرجع موثوق للمختصين في المجال القانوني.</p>
+                <div class="service-links">
+                    <a href="pages/databases/judgments.html" class="service-link">مسودات الأحكام</a>
+                    <a href="pages/databases/research.html" class="service-link">الأبحاث القانونية</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>المرجع القضائي</h3>
-                    <p>منصة قانونية متكاملة للمختصين والمهتمين في المجال القانوني</p>
-                </div>
-                <div class="footer-section">
-                    <h4>الخدمات</h4>
-                    <ul>
-                        <li><a href="pages/legal-sections/civil-law-main.html">المراجع القانونية</a></li>
-                        <li><a href="pages/calculators/end-service.html">الحاسبات القانونية</a></li>
-                        <li><a href="pages/databases/judgments.html">قواعد البيانات</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>تواصل معنا</h4>
-                    <p>للاستفسارات والمقترحات</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 المرجع القضائي - القاضي عزان الكمالي. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
+    <script>
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
 
-    <script src="js/main.js"></script>
+        // إغلاق القائمة عند النقر على رابط في الهاتف
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
