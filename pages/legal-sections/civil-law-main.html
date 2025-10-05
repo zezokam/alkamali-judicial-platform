@@ -3,303 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>القانون المدني - المرجع القضائي</title>
-    
-    <!-- Google Fonts - Tajawal -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            line-height: 1.8;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            font-size: 18px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .page-title {
-            font-size: 42px;
-            font-weight: 900;
-            color: #1e3c72;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .page-subtitle {
-            font-size: 20px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .breadcrumb {
-            background: rgba(30, 60, 114, 0.1);
-            padding: 15px 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            font-size: 16px;
-        }
-
-        .breadcrumb a {
-            color: #1e3c72;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .sections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .section-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .section-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border-color: #1e3c72;
-        }
-
-        .section-icon {
-            font-size: 36px;
-            color: #1e3c72;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1e3c72;
-            margin-bottom: 15px;
-        }
-
-        .section-description {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .topics-list {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .topics-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            font-size: 16px;
-        }
-
-        .topics-list li:last-child {
-            border-bottom: none;
-        }
-
-        .topics-list a {
-            color: #555;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .topics-list a:hover {
-            color: #1e3c72;
-            font-weight: 500;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 25px;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3);
-        }
-
-        .back-btn {
-            background: rgba(255, 255, 255, 0.95);
-            color: #1e3c72;
-            border: 2px solid #1e3c72;
-            margin-bottom: 20px;
-        }
-
-        .back-btn:hover {
-            background: #1e3c72;
-            color: white;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            .page-title {
-                font-size: 32px;
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .sections-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .section-card {
-                padding: 25px 20px;
-            }
-
-            .section-title {
-                font-size: 22px;
-            }
-
-            .breadcrumb {
-                padding: 12px 20px;
-                font-size: 14px;
-            }
-        }
-    </style>
+    <title>القانون المدني والتجاري - المرجع القضائي</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <a href="../../index.html" class="btn back-btn">
-            <i class="fas fa-arrow-right"></i>
-            العودة للرئيسية
-        </a>
+    <header>
+        <nav class="navbar">
+            <a href="../../index.html" class="logo">
+                <div class="logo-icon">⚖️</div>
+                <h1>المرجع القضائي</h1>
+            </a>
+            <div class="nav-subtitle">القاضي عزان الكمالي</div>
+        </nav>
+    </header>
 
+    <main class="container">
         <div class="breadcrumb">
-            <a href="../../index.html">الرئيسية</a> / 
-            <a href="#">المراجع القانونية</a> / 
-            <span>القانون المدني</span>
+            <a href="../../index.html">الرئيسية</a> > 
+            <span>القانون المدني والتجاري</span>
         </div>
 
-        <div class="header">
-            <h1 class="page-title">
-                <i class="fas fa-gavel"></i>
-                القانون المدني
-            </h1>
-            <p class="page-subtitle">مجموعة شاملة من القوانين المدنية والتشريعات ذات الصلة</p>
+        <section class="page-header">
+            <h1>📚 القانون المدني والتجاري</h1>
+            <p>مجموعة شاملة من القوانين المدنية والتجارية مقسمة بشكل منهجي ومنظم</p>
+        </section>
+
+        <section class="legal-sections">
+            <div class="section-grid">
+                <div class="law-card" onclick="window.location.href='civil-transactions/index.html'">
+                    <div class="card-header">
+                        <i class="fas fa-handshake"></i>
+                        <h2>قانون المعاملات المدنية</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>الأحكام العامة للمعاملات المدنية والالتزامات والعقود</p>
+                        <div class="topics-list">
+                            <div class="topic-item">• الالتزام</div>
+                            <div class="topic-item">• العقد</div>
+                            <div class="topic-item">• آثار العقد</div>
+                            <div class="topic-item">• مراتب العقد</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="law-card" onclick="window.location.href='labor-law/index.html'">
+                    <div class="card-header">
+                        <i class="fas fa-users"></i>
+                        <h2>قانون العمل</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>الأحكام المنظمة لعلاقات العمل وحقوق العمال وأصحاب العمل</p>
+                        <div class="topics-list">
+                            <div class="topic-item">• ماهية قانون العمل</div>
+                            <div class="topic-item">• عقد العمل</div>
+                            <div class="topic-item">• حقوق العامل</div>
+                            <div class="topic-item">• التزامات صاحب العمل</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="law-card" onclick="window.location.href='evidence-law/index.html'">
+                    <div class="card-header">
+                        <i class="fas fa-search"></i>
+                        <h2>قانون الإثبات</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>القواعد والأحكام المتعلقة بإثبات الحقوق والالتزامات</p>
+                        <div class="topics-list">
+                            <div class="topic-item">• مقدمة في الإثبات</div>
+                            <div class="topic-item">• وسائل الإثبات</div>
+                            <div class="topic-item">• عبء الإثبات</div>
+                            <div class="topic-item">• الأدلة الكتابية</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="law-card" onclick="window.location.href='commercial-law/index.html'">
+                    <div class="card-header">
+                        <i class="fas fa-building"></i>
+                        <h2>القانون التجاري</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>الأحكام المنظمة للأعمال التجارية والشركات</p>
+                        <div class="topics-list">
+                            <div class="topic-item">• الأعمال التجارية</div>
+                            <div class="topic-item">• قانون الشركات</div>
+                            <div class="topic-item">• قانون الإفلاس</div>
+                            <div class="topic-item">• العقود التجارية</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">المرجع القضائي</div>
+            <div class="footer-subtitle">القاضي عزان الكمالي</div>
+            <p>مكتبة شاملة للقوانين والتشريعات العمانية</p>
         </div>
+    </footer>
 
-        <div class="sections-grid">
-            <!-- قانون المعاملات المدنية -->
-            <div class="section-card">
-                <div class="section-icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h2 class="section-title">قانون المعاملات المدنية</h2>
-                <p class="section-description">
-                    يتناول هذا القسم الأحكام العامة للمعاملات المدنية، بما في ذلك العقود والالتزامات والحقوق الشخصية والعينية.
-                </p>
-                <ul class="topics-list">
-                    <li><a href="civil-transactions/obligation.html"><i class="fas fa-circle"></i> الالتزام</a></li>
-                    <li><a href="civil-transactions/contract.html"><i class="fas fa-circle"></i> العقد</a></li>
-                    <li><a href="civil-transactions/contract-effects.html"><i class="fas fa-circle"></i> آثار العقد</a></li>
-                    <li><a href="civil-transactions/contract-levels.html"><i class="fas fa-circle"></i> مراتب العقد</a></li>
-                </ul>
-                <a href="civil-transactions/index.html" class="btn">
-                    <i class="fas fa-arrow-left"></i>
-                    استكشف القسم
-                </a>
-            </div>
-
-            <!-- قانون العمل -->
-            <div class="section-card">
-                <div class="section-icon">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-                <h2 class="section-title">قانون العمل</h2>
-                <p class="section-description">
-                    يغطي هذا القسم جميع الأحكام المتعلقة بعلاقات العمل، حقوق وواجبات العمال وأصحاب العمل، وإجراءات فض المنازعات العمالية.
-                </p>
-                <ul class="topics-list">
-                    <li><a href="labor-law/nature.html"><i class="fas fa-circle"></i> ماهية قانون العمل</a></li>
-                    <li><a href="labor-law/contracts.html"><i class="fas fa-circle"></i> عقود العمل</a></li>
-                    <li><a href="labor-law/rights.html"><i class="fas fa-circle"></i> حقوق العمال</a></li>
-                    <li><a href="labor-law/termination.html"><i class="fas fa-circle"></i> إنهاء الخدمة</a></li>
-                </ul>
-                <a href="labor-law/index.html" class="btn">
-                    <i class="fas fa-arrow-left"></i>
-                    استكشف القسم
-                </a>
-            </div>
-
-            <!-- قانون الإثبات -->
-            <div class="section-card">
-                <div class="section-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <h2 class="section-title">قانون الإثبات</h2>
-                <p class="section-description">
-                    يتناول هذا القسم قواعد وطرق الإثبات في المعاملات المدنية والتجارية، ووسائل الإثبات المختلفة وحجيتها القانونية.
-                </p>
-                <ul class="topics-list">
-                    <li><a href="evidence-law/introduction.html"><i class="fas fa-circle"></i> مقدمة في الإثبات</a></li>
-                    <li><a href="evidence-law/documents.html"><i class="fas fa-circle"></i> المحررات الرسمية والعرفية</a></li>
-                    <li><a href="evidence-law/witnesses.html"><i class="fas fa-circle"></i> شهادة الشهود</a></li>
-                    <li><a href="evidence-law/presumptions.html"><i class="fas fa-circle"></i> القرائن</a></li>
-                </ul>
-                <a href="evidence-law/index.html" class="btn">
-                    <i class="fas fa-arrow-left"></i>
-                    استكشف القسم
-                </a>
-            </div>
-        </div>
-    </div>
+    <script src="../../js/main.js"></script>
 </body>
 </html>
