@@ -4,31 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المرجع القضائي - القاضي عزان الكمالي</title>
-    <meta name="description" content="مكتبة شاملة تضم جميع القوانين والتشريعات مقسمة بشكل منهجي ومنظم لسهولة الوصول والبحث السريع في المواد القانونية المختلفة.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .section-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .section-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .item {
+            color: #27ae60;
+            font-weight: 500;
+        }
+        
+        .calculators {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .calc-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .calc-link:hover {
+            background: #e9ecef;
+            transform: translateX(-5px);
+        }
+        
+        .footer {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .sections {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .section-card {
+                padding: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
+    <header class="header">
+        <nav class="nav">
             <a href="index.html" class="logo">
-                <img src="images/final_logo.svg" alt="شعار المرجع القضائي" id="logo-placeholder">
-                <h1>المرجع القضائي</h1>
+                <div class="logo-icon">⚖️</div>
+                <div>
+                    <h1>المرجع القضائي</h1>
+                    <div class="subtitle">القاضي عزان الكمالي</div>
+                </div>
             </a>
-            <div class="nav-subtitle">القاضي عزان الكمالي</div>
         </nav>
     </header>
 
     <main class="container">
         <section class="hero">
-            <div class="hero-content">
-                <h1>المرجع القضائي</h1>
-                <p>مكتبة شاملة تضم جميع القوانين والتشريعات مقسمة بشكل منهجي ومنظم لسهولة الوصول والبحث السريع في المواد القانونية المختلفة.</p>
-            </div>
+            <h1>المرجع القضائي</h1>
+            <p>مكتبة شاملة تضم جميع القوانين والتشريعات مقسمة بشكل منهجي ومنظم لسهولة الوصول والبحث السريع في المواد القانونية المختلفة.</p>
         </section>
 
-        <section class="main-sections">
+        <section class="sections">
             <div class="section-card" onclick="window.location.href='pages/legal-sections.html'">
                 <div class="card-icon">📚</div>
                 <h2>المراجع القانونية</h2>
@@ -45,14 +239,14 @@
                 <div class="card-icon">🧮</div>
                 <h2>الحاسبات القانونية</h2>
                 <p>أدوات حسابية دقيقة ومحدثة لمساعدة القضاة والمحامين في حساب المبالغ والمكافآت وفقاً للقوانين المعمول بها.</p>
-                <div class="calculators-dropdown">
-                    <a href="pages/calculator.html" class="calculator-link">
-                        <i class="fas fa-calculator"></i>
-                        حاسبة مكافأة نهاية الخدمة
+                <div class="calculators">
+                    <a href="pages/calculator.html" class="calc-link">
+                        <span>🧮</span>
+                        <span>حاسبة مكافأة نهاية الخدمة</span>
                     </a>
-                    <a href="pages/alimony_calculator.html" class="calculator-link">
-                        <i class="fas fa-money-bill-wave"></i>
-                        حاسبة النفقة التقديرية
+                    <a href="pages/alimony_calculator.html" class="calc-link">
+                        <span>💰</span>
+                        <span>حاسبة النفقة التقديرية</span>
                     </a>
                 </div>
             </div>
@@ -83,14 +277,10 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">المرجع القضائي</div>
-            <div class="footer-subtitle">القاضي عزان الكمالي</div>
-            <p>مكتبة شاملة للقوانين والتشريعات العمانية</p>
-        </div>
+    <footer class="footer">
+        <div class="footer-logo">المرجع القضائي</div>
+        <div class="subtitle">القاضي عزان الكمالي</div>
+        <p>مكتبة شاملة للقوانين والتشريعات العمانية</p>
     </footer>
-
-    <script src="js/main.js"></script>
 </body>
 </html>
