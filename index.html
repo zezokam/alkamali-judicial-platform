@@ -4,82 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المرجع القضائي - القاضي عزان الكمالي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/unified-style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* أنماط خاصة بالصفحة الرئيسية */
         body {
-            font-family: 'Tajawal', Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-            color: #333;
-        }
-        
-        .logo-icon {
-            font-size: 2.5rem;
-        }
-        
-        .logo h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-        
-        .subtitle {
-            font-size: 1rem;
-            color: #666;
-            margin-top: 0.5rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
         }
         
         .hero {
             text-align: center;
             margin-bottom: 3rem;
             color: white;
+            padding: 3rem 0;
         }
         
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: white;
         }
         
         .hero p {
@@ -87,6 +31,7 @@
             max-width: 800px;
             margin: 0 auto;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .sections {
@@ -165,20 +110,6 @@
             transform: translateX(-5px);
         }
         
-        .footer {
-            background: rgba(0,0,0,0.8);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -196,21 +127,17 @@
             .section-card {
                 padding: 1.5rem;
             }
-            
-            .container {
-                padding: 1rem;
-            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="logo">
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
                 <div class="logo-icon">⚖️</div>
                 <div>
                     <h1>المرجع القضائي</h1>
-                    <div class="subtitle">القاضي عزان الكمالي</div>
+                    <div class="nav-subtitle">القاضي عزان الكمالي</div>
                 </div>
             </a>
         </nav>
@@ -240,11 +167,11 @@
                 <h2>الحاسبات القانونية</h2>
                 <p>أدوات حسابية دقيقة ومحدثة لمساعدة القضاة والمحامين في حساب المبالغ والمكافآت وفقاً للقوانين المعمول بها.</p>
                 <div class="calculators">
-                    <a href="pages/calculator.html" class="calc-link">
+                    <a href="pages/calculators/end-service-fixed.html" class="calc-link">
                         <span>🧮</span>
                         <span>حاسبة مكافأة نهاية الخدمة</span>
                     </a>
-                    <a href="pages/alimony_calculator.html" class="calc-link">
+                    <a href="pages/calculators/alimony-fixed.html" class="calc-link">
                         <span>💰</span>
                         <span>حاسبة النفقة التقديرية</span>
                     </a>
@@ -263,6 +190,18 @@
                 </div>
             </div>
 
+            <div class="section-card" onclick="window.location.href='pages/judicial-principles.html'">
+                <div class="card-icon">⚖️</div>
+                <h2>المبادئ القضائية</h2>
+                <p>مجموعة شاملة من المبادئ والأحكام القضائية المستقرة في مختلف الدوائر القضائية.</p>
+                <div class="section-items">
+                    <div class="item">✓ مبادئ الإثبات</div>
+                    <div class="item">✓ أحكام الاختصاص</div>
+                    <div class="item">✓ قواعد الإجراءات</div>
+                    <div class="item">✓ السوابق القضائية</div>
+                </div>
+            </div>
+
             <div class="section-card" onclick="window.location.href='pages/research.html'">
                 <div class="card-icon">🔬</div>
                 <h2>الأبحاث القانونية</h2>
@@ -277,10 +216,12 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-logo">المرجع القضائي</div>
-        <div class="subtitle">القاضي عزان الكمالي</div>
-        <p>مكتبة شاملة للقوانين والتشريعات العمانية</p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">المرجع القضائي</div>
+            <div class="footer-subtitle">القاضي عزان الكمالي</div>
+            <p>مكتبة شاملة للقوانين والتشريعات العمانية</p>
+        </div>
     </footer>
 </body>
 </html>

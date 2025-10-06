@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة مكافأة نهاية الخدمة - المرجع القضائي</title>
+    <link rel="stylesheet" href="../../css/unified-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .calculator-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #8B6E4E, #6D563C);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .law-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .law-option {
+            padding: 2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .law-option:hover {
+            border-color: #8B6E4E;
+            background: #f8f9fa;
+        }
+        
+        .law-option.selected {
+            border-color: #8B6E4E;
+            background: #8B6E4E;
+            color: white;
+        }
+        
+        .calculator-form {
+            display: none;
+            margin-top: 2rem;
+        }
+        
+        .calculator-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #8B6E4E;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: #8B6E4E;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .calculate-btn:hover {
+            background: #6D563C;
+        }
+        
+        .result-container {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .result-container.show {
+            display: block;
+        }
+        
+        .result-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .result-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #27ae60;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .result-details {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .result-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .legal-reference {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #e8f4f8;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .law-selection {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="../../index.html" class="logo">
+                <div class="logo-icon">⚖️</div>
+                <div>
+                    <h1>المرجع القضائي</h1>
+                    <div class="nav-subtitle">القاضي عزان الكمالي</div>
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="../../index.html">الرئيسية</a> > 
+            <span>حاسبة مكافأة نهاية الخدمة</span>
+        </div>
+
+        <div class="calculator-container">
+            <div class="calculator-header">
+                <h1><i class="fas fa-calculator"></i> حاسبة مكافأة نهاية الخدمة</h1>
+                <p>أداة سهلة الاستخدام لحساب مكافأة نهاية الخدمة وفقاً للقانون العماني</p>
+            </div>
+
+            <div class="law-selection">
+                <div class="law-option" onclick="selectLaw('new')">
+                    <i class="fas fa-file-alt" style="font-size: 2rem; margin-bottom: 1rem; color: #8B6E4E;"></i>
+                    <h3>القانون الجديد</h3>
+                    <p>مرسوم رقم 2023/53</p>
+                </div>
+                <div class="law-option" onclick="selectLaw('old')">
+                    <i class="fas fa-history" style="font-size: 2rem; margin-bottom: 1rem; color: #8B6E4E;"></i>
+                    <h3>القانون القديم</h3>
+                    <p>مرسوم رقم 2003/35</p>
+                </div>
+            </div>
+
+            <form class="calculator-form" id="calculatorForm">
+                <div class="form-group">
+                    <label for="startDate">تاريخ بدء العمل</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="endDate">تاريخ نهاية العمل</label>
+                    <input type="date" id="endDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="salary">الراتب الشهري الأساسي (ر.ع)</label>
+                    <input type="number" id="salary" step="0.001" min="0" required>
+                </div>
+                
+                <button type="submit" class="calculate-btn">
+                    <i class="fas fa-calculator"></i> احسب
+                </button>
+            </form>
+
+            <div class="result-container" id="resultContainer">
+                <div class="result-title">نتيجة الحساب</div>
+                <div class="result-amount" id="resultAmount">0.000 ريال</div>
+                
+                <div class="result-details">
+                    <div class="result-row">
+                        <span>مدة الخدمة:</span>
+                        <span id="servicePeriod">0 سنوات و 0 شهر و 0 يوم</span>
+                    </div>
+                    <div class="result-row">
+                        <span>الراتب الشهري:</span>
+                        <span id="monthlySalary">0.000 ريال</span>
+                    </div>
+                    <div class="result-row">
+                        <span>معدل اليوم الواحد:</span>
+                        <span id="dailyRate">0.000 ريال</span>
+                    </div>
+                    <div class="result-row">
+                        <span>إجمالي المكافأة:</span>
+                        <span id="totalAmount">0.000 ريال</span>
+                    </div>
+                </div>
+                
+                <div class="legal-reference" id="legalReference">
+                    وفقاً لنص المادة من قانون العمل العماني
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">المرجع القضائي</div>
+            <div class="footer-subtitle">القاضي عزان الكمالي</div>
+            <p>مكتبة شاملة للقوانين والتشريعات العمانية</p>
+        </div>
+    </footer>
+
+    <script>
+        let selectedLaw = null;
+
+        function selectLaw(law) {
+            selectedLaw = law;
+            
+            // إزالة التحديد من جميع الخيارات
+            document.querySelectorAll('.law-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // إضافة التحديد للخيار المختار
+            event.target.closest('.law-option').classList.add('selected');
+            
+            // إظهار النموذج
+            document.getElementById('calculatorForm').classList.add('active');
+            
+            // تحديث المرجع القانوني
+            updateLegalReference();
+        }
+
+        function updateLegalReference() {
+            const referenceElement = document.getElementById('legalReference');
+            if (selectedLaw === 'new') {
+                referenceElement.textContent = 'وفقاً لنص المادة (41) من قانون العمل العماني 2023/53';
+            } else {
+                referenceElement.textContent = 'وفقاً لنص المادة (39) من قانون العمل العماني 2003/35';
+            }
+        }
+
+        function calculateServicePeriod(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            
+            let years = end.getFullYear() - start.getFullYear();
+            let months = end.getMonth() - start.getMonth();
+            let days = end.getDate() - start.getDate();
+            
+            if (days < 0) {
+                months--;
+                const lastMonth = new Date(end.getFullYear(), end.getMonth(), 0);
+                days += lastMonth.getDate();
+            }
+            
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            
+            return { years, months, days };
+        }
+
+        function calculateEndOfServiceBenefit(startDate, endDate, salary, law) {
+            const servicePeriod = calculateServicePeriod(startDate, endDate);
+            const totalDays = (servicePeriod.years * 365) + (servicePeriod.months * 30) + servicePeriod.days;
+            const dailyRate = salary / 30;
+            
+            let benefitDays = 0;
+            
+            if (law === 'new') {
+                // القانون الجديد 2023/53
+                if (servicePeriod.years < 5) {
+                    benefitDays = servicePeriod.years * 15 + (servicePeriod.months * 15 / 12);
+                } else {
+                    benefitDays = (5 * 15) + ((servicePeriod.years - 5) * 30) + (servicePeriod.months * 30 / 12);
+                }
+            } else {
+                // القانون القديم 2003/35
+                if (servicePeriod.years < 5) {
+                    benefitDays = servicePeriod.years * 15 + (servicePeriod.months * 15 / 12);
+                } else {
+                    benefitDays = (5 * 15) + ((servicePeriod.years - 5) * 30) + (servicePeriod.months * 30 / 12);
+                }
+            }
+            
+            const totalBenefit = benefitDays * dailyRate;
+            
+            return {
+                servicePeriod,
+                dailyRate,
+                benefitDays,
+                totalBenefit
+            };
+        }
+
+        document.getElementById('calculatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!selectedLaw) {
+                alert('يرجى اختيار القانون المطبق أولاً');
+                return;
+            }
+            
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const salary = parseFloat(document.getElementById('salary').value);
+            
+            if (!startDate || !endDate || !salary) {
+                alert('يرجى ملء جميع الحقول');
+                return;
+            }
+            
+            if (new Date(startDate) >= new Date(endDate)) {
+                alert('تاريخ نهاية العمل يجب أن يكون بعد تاريخ بدء العمل');
+                return;
+            }
+            
+            const result = calculateEndOfServiceBenefit(startDate, endDate, salary, selectedLaw);
+            
+            // عرض النتائج
+            document.getElementById('resultAmount').textContent = result.totalBenefit.toFixed(3) + ' ريال';
+            document.getElementById('servicePeriod').textContent = 
+                `${result.servicePeriod.years} سنوات و ${result.servicePeriod.months} شهر و ${result.servicePeriod.days} يوم`;
+            document.getElementById('monthlySalary').textContent = salary.toFixed(3) + ' ريال';
+            document.getElementById('dailyRate').textContent = result.dailyRate.toFixed(3) + ' ريال';
+            document.getElementById('totalAmount').textContent = result.totalBenefit.toFixed(3) + ' ريال';
+            
+            document.getElementById('resultContainer').classList.add('show');
+            
+            // التمرير إلى النتيجة
+            document.getElementById('resultContainer').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    </script>
+</body>
+</html>

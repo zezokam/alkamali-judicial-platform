@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة النفقة التقديرية - المرجع القضائي</title>
+    <link rel="stylesheet" href="../../css/unified-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .calculator-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #8B6E4E, #6D563C);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #8B6E4E;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .radio-option input[type="radio"] {
+            width: auto;
+        }
+        
+        .children-section {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .child-input {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .child-input label {
+            min-width: 100px;
+            margin-bottom: 0;
+        }
+        
+        .child-input input {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        .add-child-btn {
+            padding: 0.5rem 1rem;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .remove-child-btn {
+            padding: 0.5rem;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            min-width: 40px;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: #8B6E4E;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .calculate-btn:hover {
+            background: #6D563C;
+        }
+        
+        .result-container {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .result-container.show {
+            display: block;
+        }
+        
+        .result-summary {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .total-alimony {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .detail-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #8B6E4E;
+        }
+        
+        .detail-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .detail-value {
+            font-size: 1.2rem;
+            color: #27ae60;
+            font-weight: 600;
+        }
+        
+        .disclaimer {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            color: #856404;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .child-input {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .child-input label {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="../../index.html" class="logo">
+                <div class="logo-icon">⚖️</div>
+                <div>
+                    <h1>المرجع القضائي</h1>
+                    <div class="nav-subtitle">القاضي عزان الكمالي</div>
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="../../index.html">الرئيسية</a> > 
+            <span>حاسبة النفقة التقديرية</span>
+        </div>
+
+        <div class="calculator-container">
+            <div class="calculator-header">
+                <h1><i class="fas fa-calculator"></i> حاسبة النفقة التقديرية</h1>
+                <p>أداة استرشادية لحساب النفقة التقديرية للأبناء وفقاً لأحدث المعايير القضائية</p>
+            </div>
+
+            <form id="alimonyForm">
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-money-bill-wave"></i>
+                        المعلومات المالية
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="income">الدخل الشهري للأب (ر.ع)</label>
+                        <input type="number" id="income" step="0.001" min="0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>هل على الأب التزامات مالية كبيرة (ديون أو أقساط)؟</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="debts_yes" name="debts" value="yes">
+                                <label for="debts_yes">نعم</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="debts_no" name="debts" value="no" checked>
+                                <label for="debts_no">لا</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="debtsAmount" style="display: none;">
+                        <label for="debts_value">مبلغ الالتزامات الشهرية (ر.ع)</label>
+                        <input type="number" id="debts_value" step="0.001" min="0">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-home"></i>
+                        معلومات السكن
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>هل تطلب المدعية بدل سكن (نفقة سكن)؟</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="housing_yes" name="housing" value="yes">
+                                <label for="housing_yes">نعم</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="housing_no" name="housing" value="no" checked>
+                                <label for="housing_no">لا</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="region">المنطقة الجغرافية</label>
+                        <select id="region">
+                            <option value="normal">عادية</option>
+                            <option value="expensive">مرتفعة الكلفة</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-users"></i>
+                        معلومات الأسرة
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>هل الأب متزوج من امرأة أخرى؟</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="married_yes" name="married" value="yes">
+                                <label for="married_yes">نعم</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="married_no" name="married" value="no" checked>
+                                <label for="married_no">لا</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="otherChildrenSection" style="display: none;">
+                        <label for="other_children">عدد الأطفال من الزوجة الأخرى</label>
+                        <input type="number" id="other_children" min="0" value="0">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-child"></i>
+                        معلومات الأطفال المستحقين للنفقة
+                    </div>
+                    
+                    <div class="children-section" id="childrenSection">
+                        <div class="child-input">
+                            <label>الطفل 1:</label>
+                            <input type="number" placeholder="العمر بالسنوات" min="0" max="25" class="child-age" required>
+                            <button type="button" class="remove-child-btn" onclick="removeChild(this)" style="display: none;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="add-child-btn" onclick="addChild()">
+                        <i class="fas fa-plus"></i> إضافة طفل
+                    </button>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title">
+                        <i class="fas fa-gift"></i>
+                        الزيادات الموسمية
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>هل ترغب في حساب الزيادة الموسمية (للأعياد والدراسة)؟</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="seasonal_yes" name="seasonal" value="yes">
+                                <label for="seasonal_yes">نعم</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="seasonal_no" name="seasonal" value="no" checked>
+                                <label for="seasonal_no">لا</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-btn">
+                    <i class="fas fa-calculator"></i> حساب النفقة
+                </button>
+            </form>
+
+            <div class="result-container" id="resultContainer">
+                <div class="result-summary">
+                    <h2>النفقة التقديرية الشهرية</h2>
+                    <div class="total-alimony" id="totalAlimony">0.000 ريال</div>
+                </div>
+                
+                <div class="result-details" id="resultDetails">
+                    <!-- سيتم ملء التفاصيل بواسطة JavaScript -->
+                </div>
+                
+                <div class="disclaimer">
+                    <strong>تنبيه مهم:</strong> القيم الناتجة عن هذه الحاسبة هي قيم استرشادية وغير ملزمة. يمتلك القاضي السلطة التقديرية الكاملة لتعديل هذه المبالغ بالزيادة أو النقصان بناءً على ظروف كل قضية على حدة.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">المرجع القضائي</div>
+            <div class="footer-subtitle">القاضي عزان الكمالي</div>
+            <p>مكتبة شاملة للقوانين والتشريعات العمانية</p>
+        </div>
+    </footer>
+
+    <script>
+        let childCount = 1;
+
+        // إظهار/إخفاء حقول الديون
+        document.querySelectorAll('input[name="debts"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const debtsAmount = document.getElementById('debtsAmount');
+                if (this.value === 'yes') {
+                    debtsAmount.style.display = 'block';
+                    document.getElementById('debts_value').required = true;
+                } else {
+                    debtsAmount.style.display = 'none';
+                    document.getElementById('debts_value').required = false;
+                    document.getElementById('debts_value').value = '';
+                }
+            });
+        });
+
+        // إظهار/إخفاء حقول الأطفال من زوجة أخرى
+        document.querySelectorAll('input[name="married"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const otherChildrenSection = document.getElementById('otherChildrenSection');
+                if (this.value === 'yes') {
+                    otherChildrenSection.style.display = 'block';
+                } else {
+                    otherChildrenSection.style.display = 'none';
+                    document.getElementById('other_children').value = '0';
+                }
+            });
+        });
+
+        function addChild() {
+            childCount++;
+            const childrenSection = document.getElementById('childrenSection');
+            const childDiv = document.createElement('div');
+            childDiv.className = 'child-input';
+            childDiv.innerHTML = `
+                <label>الطفل ${childCount}:</label>
+                <input type="number" placeholder="العمر بالسنوات" min="0" max="25" class="child-age" required>
+                <button type="button" class="remove-child-btn" onclick="removeChild(this)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            `;
+            childrenSection.appendChild(childDiv);
+            
+            // إظهار أزرار الحذف إذا كان هناك أكثر من طفل واحد
+            updateRemoveButtons();
+        }
+
+        function removeChild(button) {
+            button.parentElement.remove();
+            childCount--;
+            updateChildLabels();
+            updateRemoveButtons();
+        }
+
+        function updateChildLabels() {
+            const childInputs = document.querySelectorAll('.child-input');
+            childInputs.forEach((input, index) => {
+                const label = input.querySelector('label');
+                label.textContent = `الطفل ${index + 1}:`;
+            });
+            childCount = childInputs.length;
+        }
+
+        function updateRemoveButtons() {
+            const removeButtons = document.querySelectorAll('.remove-child-btn');
+            removeButtons.forEach(button => {
+                button.style.display = childCount > 1 ? 'block' : 'none';
+            });
+        }
+
+        function getAgeMultiplier(age) {
+            if (age < 2) return 1.2;
+            if (age >= 2 && age <= 6) return 1.1;
+            if (age >= 7 && age <= 12) return 1.1;
+            if (age >= 13 && age <= 17) return 1.3;
+            if (age >= 18) return 0.9;
+            return 1.0;
+        }
+
+        function calculateAlimony(formData) {
+            const income = parseFloat(formData.income);
+            const debts = formData.debts === 'yes' ? parseFloat(formData.debts_value || 0) : 0;
+            const netIncome = income - debts;
+            
+            const hasHousing = formData.housing === 'yes';
+            const isExpensiveRegion = formData.region === 'expensive';
+            const hasOtherWife = formData.married === 'yes';
+            const otherChildren = hasOtherWife ? parseInt(formData.other_children || 0) : 0;
+            const hasSeasonal = formData.seasonal === 'yes';
+            
+            let housingAllowance = 0;
+            let childrenPercentage = 0;
+            
+            if (hasHousing) {
+                housingAllowance = netIncome * 0.08;
+                childrenPercentage = 0.05;
+            } else {
+                housingAllowance = netIncome * 0.09;
+                childrenPercentage = 0.065;
+            }
+            
+            // حساب نفقة الأطفال
+            let totalChildrenAlimony = 0;
+            const childAges = formData.childAges;
+            
+            childAges.forEach(age => {
+                const multiplier = getAgeMultiplier(parseInt(age));
+                totalChildrenAlimony += netIncome * childrenPercentage * multiplier;
+            });
+            
+            // خصم الأطفال من زوجة أخرى
+            if (otherChildren > 0) {
+                const deduction = Math.min(otherChildren * 0.04, 0.15);
+                totalChildrenAlimony *= (1 - deduction);
+            }
+            
+            // إضافة عامل المنطقة الجغرافية
+            let regionAdjustment = 0;
+            if (isExpensiveRegion) {
+                regionAdjustment = netIncome * 0.02;
+            }
+            
+            let totalAlimony = housingAllowance + totalChildrenAlimony + regionAdjustment;
+            
+            // تطبيق السقف العام
+            let maxPercentage = 0.40;
+            if (netIncome < 600) {
+                maxPercentage = 0.45;
+            } else if (netIncome > 1500) {
+                maxPercentage = 0.35;
+            }
+            
+            const maxAlimony = netIncome * maxPercentage;
+            if (totalAlimony > maxAlimony) {
+                totalAlimony = maxAlimony;
+            }
+            
+            // الزيادات الموسمية (لا تدخل ضمن السقف)
+            let seasonalBonus = 0;
+            if (hasSeasonal) {
+                seasonalBonus = totalAlimony * 0.25; // 10% للأعياد + 15% للدراسة
+            }
+            
+            return {
+                netIncome,
+                housingAllowance,
+                totalChildrenAlimony,
+                regionAdjustment,
+                totalAlimony,
+                seasonalBonus,
+                finalTotal: totalAlimony + seasonalBonus
+            };
+        }
+
+        document.getElementById('alimonyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {};
+            
+            // جمع البيانات من النموذج
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // جمع أعمار الأطفال
+            const childAges = [];
+            document.querySelectorAll('.child-age').forEach(input => {
+                if (input.value) {
+                    childAges.push(parseInt(input.value));
+                }
+            });
+            
+            if (childAges.length === 0) {
+                alert('يرجى إدخال عمر طفل واحد على الأقل');
+                return;
+            }
+            
+            data.childAges = childAges;
+            data.income = document.getElementById('income').value;
+            data.debts_value = document.getElementById('debts_value').value;
+            data.other_children = document.getElementById('other_children').value;
+            
+            const result = calculateAlimony(data);
+            
+            // عرض النتائج
+            document.getElementById('totalAlimony').textContent = result.finalTotal.toFixed(3) + ' ريال';
+            
+            const resultDetails = document.getElementById('resultDetails');
+            resultDetails.innerHTML = `
+                <div class="detail-card">
+                    <div class="detail-title">الدخل الصافي</div>
+                    <div class="detail-value">${result.netIncome.toFixed(3)} ريال</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-title">بدل السكن</div>
+                    <div class="detail-value">${result.housingAllowance.toFixed(3)} ريال</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-title">نفقة الأطفال</div>
+                    <div class="detail-value">${result.totalChildrenAlimony.toFixed(3)} ريال</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-title">تعديل المنطقة</div>
+                    <div class="detail-value">${result.regionAdjustment.toFixed(3)} ريال</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-title">النفقة الأساسية</div>
+                    <div class="detail-value">${result.totalAlimony.toFixed(3)} ريال</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-title">الزيادات الموسمية</div>
+                    <div class="detail-value">${result.seasonalBonus.toFixed(3)} ريال</div>
+                </div>
+            `;
+            
+            document.getElementById('resultContainer').classList.add('show');
+            document.getElementById('resultContainer').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    </script>
+</body>
+</html>

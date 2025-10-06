@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المبادئ القضائية - المرجع القضائي</title>
+    <link rel="stylesheet" href="../css/unified-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .principles-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .search-section {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .search-filters {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .principle-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .principle-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .principle-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .principle-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .meta-tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .meta-court {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+        
+        .meta-category {
+            background: var(--success-color);
+            color: white;
+        }
+        
+        .principle-content {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .principle-reference {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-light);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .search-filters {
+                grid-template-columns: 1fr;
+            }
+            
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .principles-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">⚖️</div>
+                <div>
+                    <h1>المرجع القضائي</h1>
+                    <div class="nav-subtitle">القاضي عزان الكمالي</div>
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">الرئيسية</a> > 
+            <span>المبادئ القضائية</span>
+        </div>
+
+        <div class="page-header">
+            <h1><i class="fas fa-balance-scale"></i> المبادئ القضائية</h1>
+            <p>مجموعة شاملة من المبادئ والأحكام القضائية المستقرة في مختلف الدوائر القضائية</p>
+        </div>
+
+        <div class="principles-container">
+            <div class="search-section">
+                <h2><i class="fas fa-search"></i> البحث والتصفية</h2>
+                
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="ابحث في المبادئ القضائية...">
+                    <button onclick="searchPrinciples()">
+                        <i class="fas fa-search"></i> بحث
+                    </button>
+                </div>
+                
+                <div class="search-filters">
+                    <select id="courtFilter">
+                        <option value="">جميع الدوائر</option>
+                        <option value="المدنية">المدنية</option>
+                        <option value="الجزائية">الجزائية</option>
+                        <option value="التجارية">التجارية</option>
+                        <option value="الشرعية">الشرعية</option>
+                        <option value="العمالية">العمالية</option>
+                        <option value="الإدارية">الإدارية</option>
+                    </select>
+                    
+                    <select id="categoryFilter">
+                        <option value="">جميع التصنيفات</option>
+                        <option value="إثبات">إثبات</option>
+                        <option value="إجراءات">إجراءات</option>
+                        <option value="اختصاص">اختصاص</option>
+                        <option value="عقد">عقد</option>
+                        <option value="حضانة">حضانة</option>
+                        <option value="عمل">عمل</option>
+                        <option value="تعويض">تعويض</option>
+                        <option value="ملكية">ملكية</option>
+                        <option value="نفقة">نفقة</option>
+                        <option value="طلاق">طلاق</option>
+                    </select>
+                    
+                    <button onclick="clearFilters()" class="btn-outline">
+                        <i class="fas fa-times"></i> مسح الفلاتر
+                    </button>
+                </div>
+            </div>
+
+            <div id="principlesContainer">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> جاري تحميل المبادئ القضائية...
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">المرجع القضائي</div>
+            <div class="footer-subtitle">القاضي عزان الكمالي</div>
+            <p>مكتبة شاملة للقوانين والتشريعات العمانية</p>
+        </div>
+    </footer>
+
+    <script>
+        // بيانات المبادئ القضائية (مستخرجة من Notion)
+        const judicialPrinciples = [
+            {
+                title: "حكم/ محكمة - شكل - موضوع",
+                court: "المدنية",
+                category: "إجراءات",
+                content: "جواز نظر ذات الدائرة للحكم الصادر بعدم قبولها أو رفضها بحالتها",
+                reference: "قانون الإجراءات المدنية والتجارية"
+            },
+            {
+                title: "ندب خبير",
+                court: "التجارية",
+                category: "خبرة",
+                content: "الأحكام والإجراءات المتعلقة بندب الخبراء في القضايا التجارية",
+                reference: "قانون التجارة، قانون الإثبات"
+            },
+            {
+                title: "الاختصاص القيمي والنوعي",
+                court: "العمالية",
+                category: "اختصاص",
+                content: "تحديد الاختصاص القيمي والنوعي للمحاكم العمالية",
+                reference: "قانون العمل، قانون الإجراءات المدنية والتجارية - المادتان (36-37)"
+            },
+            {
+                title: "دعوى الصورية",
+                court: "المدنية",
+                category: "الصورية",
+                content: "الأحكام المتعلقة بدعاوى الصورية والعقود الصورية",
+                reference: "قانون المعاملات المدنية"
+            },
+            {
+                title: "عدم صلاحية الحاضن",
+                court: "الشرعية",
+                category: "حضانة",
+                content: "شروط وأحكام صلاحية الحاضن وأسباب عدم الصلاحية",
+                reference: "قانون الأحوال الشخصية"
+            },
+            {
+                title: "خلو القانون من نص",
+                court: "الجزائية",
+                category: "اختصاص",
+                content: "كيفية التعامل مع الحالات التي يخلو فيها القانون من نص صريح",
+                reference: "قانون الإجراءات الجزائية"
+            },
+            {
+                title: "التمسك بدفع جوهري",
+                court: "المدنية",
+                category: "دفاع",
+                content: "شروط وأحكام التمسك بالدفوع الجوهرية في الدعاوى المدنية",
+                reference: "قانون الإجراءات المدنية والتجارية - المادة 172"
+            },
+            {
+                title: "تقادم الحق",
+                court: "المدنية",
+                category: "تقادم",
+                content: "أحكام تقادم الحقوق والدعاوى المدنية",
+                reference: "قانون المعاملات المدنية"
+            },
+            {
+                title: "القرائن",
+                court: "المدنية",
+                category: "إثبات",
+                content: "استخدام القرائن كوسيلة إثبات في الدعاوى المدنية",
+                reference: "قانون الإثبات"
+            },
+            {
+                title: "عدم توقيع مسودة الحكم",
+                court: "العمالية",
+                category: "إجراءات",
+                content: "الآثار القانونية لعدم توقيع مسودة الحكم من قبل القاضي",
+                reference: "قانون الإجراءات المدنية والتجارية - المادة 170"
+            },
+            {
+                title: "جواز المحضون",
+                court: "الشرعية",
+                category: "حضانة",
+                content: "أحكام جواز سفر المحضون وشروطه",
+                reference: "قانون الأحوال الشخصية"
+            },
+            {
+                title: "صك شرعي",
+                court: "المدنية",
+                category: "إثبات",
+                content: "حجية الصكوك الشرعية كوسيلة إثبات",
+                reference: "قانون الإثبات"
+            },
+            {
+                title: "التخصيص في التوكيل",
+                court: "الجزائية",
+                category: "إجراءات",
+                content: "شروط التخصيص في التوكيل في القضايا الجزائية",
+                reference: "قانون الإجراءات الجزائية"
+            },
+            {
+                title: "توزيع العمل بين الدوائر",
+                court: "المدنية",
+                category: "اختصاص",
+                content: "آلية توزيع العمل والقضايا بين الدوائر المختلفة",
+                reference: "قانون الإجراءات المدنية والتجارية"
+            },
+            {
+                title: "عدم الاختصاص",
+                court: "الجزائية",
+                category: "اختصاص",
+                content: "أحكام عدم الاختصاص في القضايا الجزائية",
+                reference: "قانون الإجراءات الجزائية"
+            },
+            {
+                title: "التعسف باستعمال حق التقاضي",
+                court: "المدنية",
+                category: "تعسف",
+                content: "ضوابط وأحكام التعسف في استعمال حق التقاضي",
+                reference: "قانون الإجراءات المدنية والتجارية"
+            },
+            {
+                title: "تبعية العامل لصاحب العمل",
+                court: "العمالية",
+                category: "التبعية",
+                content: "معايير تحديد تبعية العامل لصاحب العمل",
+                reference: "قانون العمل"
+            },
+            {
+                title: "دعاوى الملك",
+                court: "المدنية",
+                category: "ملكية",
+                content: "أحكام دعاوى إثبات الملكية والحقوق العينية",
+                reference: "قانون المعاملات المدنية"
+            },
+            {
+                title: "عدم العلم بالتصرفات القانونية",
+                court: "المدنية",
+                category: "إثبات",
+                content: "أثر عدم العلم بالتصرفات القانونية على صحتها",
+                reference: "قانون الإثبات"
+            },
+            {
+                title: "شهادة الوكيل",
+                court: "المدنية",
+                category: "إثبات",
+                content: "حجية شهادة الوكيل في الدعاوى المدنية",
+                reference: "قانون الإثبات"
+            }
+        ];
+
+        let filteredPrinciples = [...judicialPrinciples];
+
+        function renderPrinciples(principles) {
+            const container = document.getElementById('principlesContainer');
+            
+            if (principles.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-muted);"></i>
+                        <h3>لا توجد نتائج</h3>
+                        <p>لم يتم العثور على مبادئ قضائية تطابق معايير البحث المحددة</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const principlesHTML = principles.map(principle => `
+                <div class="principle-card">
+                    <h3 class="principle-title">${principle.title}</h3>
+                    <div class="principle-meta">
+                        <span class="meta-tag meta-court">
+                            <i class="fas fa-gavel"></i> ${principle.court}
+                        </span>
+                        <span class="meta-tag meta-category">
+                            <i class="fas fa-tag"></i> ${principle.category}
+                        </span>
+                    </div>
+                    <div class="principle-content">
+                        ${principle.content}
+                    </div>
+                    <div class="principle-reference">
+                        <i class="fas fa-book"></i> المرجع: ${principle.reference}
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = `<div class="principles-grid">${principlesHTML}</div>`;
+        }
+
+        function searchPrinciples() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const courtFilter = document.getElementById('courtFilter').value;
+            const categoryFilter = document.getElementById('categoryFilter').value;
+
+            filteredPrinciples = judicialPrinciples.filter(principle => {
+                const matchesSearch = !searchTerm || 
+                    principle.title.toLowerCase().includes(searchTerm) ||
+                    principle.content.toLowerCase().includes(searchTerm) ||
+                    principle.reference.toLowerCase().includes(searchTerm);
+                
+                const matchesCourt = !courtFilter || principle.court === courtFilter;
+                const matchesCategory = !categoryFilter || principle.category === categoryFilter;
+
+                return matchesSearch && matchesCourt && matchesCategory;
+            });
+
+            renderPrinciples(filteredPrinciples);
+        }
+
+        function clearFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('courtFilter').value = '';
+            document.getElementById('categoryFilter').value = '';
+            filteredPrinciples = [...judicialPrinciples];
+            renderPrinciples(filteredPrinciples);
+        }
+
+        // إضافة مستمعي الأحداث
+        document.getElementById('searchInput').addEventListener('input', searchPrinciples);
+        document.getElementById('courtFilter').addEventListener('change', searchPrinciples);
+        document.getElementById('categoryFilter').addEventListener('change', searchPrinciples);
+
+        // تحميل المبادئ عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                renderPrinciples(filteredPrinciples);
+            }, 500);
+        });
+    </script>
+</body>
+</html>
