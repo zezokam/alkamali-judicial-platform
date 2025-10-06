@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القانون المدني والتجاري - المرجع القضائي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .section-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-card h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .topics-list {
+            list-style: none;
+        }
+
+        .topics-list li {
+            padding: 0.5rem 0;
+            color: #555;
+            border-bottom: 1px solid #eee;
+        }
+
+        .topics-list li:last-child {
+            border-bottom: none;
+        }
+
+        .topics-list li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 0 1rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 20px;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .page-header {
+                padding: 2rem;
+            }
+            
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .sections-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .section-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">⚖️</div>
+                <div class="logo-text">
+                    <h1>المرجع القضائي</h1>
+                    <p>القاضي عزان الكمالي</p>
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-btn">
+            ← العودة للرئيسية
+        </a>
+
+        <div class="page-header">
+            <h1>📚 القانون المدني والتجاري</h1>
+            <p>مجموعة شاملة من القوانين المدنية والتجارية مع الشروحات التفصيلية والتطبيقات العملية</p>
+        </div>
+
+        <div class="sections-grid">
+            <div class="section-card" onclick="window.location.href='civil-transactions.html'">
+                <div class="section-icon">📋</div>
+                <h3>قانون المعاملات المدنية</h3>
+                <p>الأحكام العامة للمعاملات المدنية والالتزامات والعقود مع التطبيقات العملية والأحكام القضائية.</p>
+                <ul class="topics-list">
+                    <li>الالتزامات ومصادرها</li>
+                    <li>العقود وأحكامها</li>
+                    <li>آثار العقد</li>
+                    <li>مراتب العقد</li>
+                    <li>الضمانات</li>
+                </ul>
+            </div>
+
+            <div class="section-card" onclick="window.location.href='labor-law.html'">
+                <div class="section-icon">👷</div>
+                <h3>قانون العمل</h3>
+                <p>أحكام علاقات العمل والعمال وحقوق وواجبات أطراف عقد العمل مع التطبيقات القضائية.</p>
+                <ul class="topics-list">
+                    <li>ماهية قانون العمل</li>
+                    <li>عقد العمل</li>
+                    <li>حقوق العامل</li>
+                    <li>مكافأة نهاية الخدمة</li>
+                    <li>تسوية منازعات العمل</li>
+                </ul>
+            </div>
+
+            <div class="section-card" onclick="window.location.href='evidence-law.html'">
+                <div class="section-icon">🔍</div>
+                <h3>قانون الإثبات</h3>
+                <p>أحكام الإثبات في المعاملات المدنية والتجارية وطرق الإثبات المختلفة والأدلة القانونية.</p>
+                <ul class="topics-list">
+                    <li>مقدمة في الإثبات</li>
+                    <li>أدلة الإثبات</li>
+                    <li>الكتابة والمحررات</li>
+                    <li>الشهادة</li>
+                    <li>الخبرة والمعاينة</li>
+                </ul>
+            </div>
+
+            <div class="section-card" onclick="window.location.href='commercial-law.html'">
+                <div class="section-icon">🏢</div>
+                <h3>القانون التجاري</h3>
+                <p>أحكام الأعمال التجارية والشركات التجارية والإفلاس مع التطبيقات العملية في المحاكم.</p>
+                <ul class="topics-list">
+                    <li>الأعمال التجارية</li>
+                    <li>قانون الشركات</li>
+                    <li>قانون الإفلاس</li>
+                    <li>العقود التجارية</li>
+                    <li>التاجر وأحكامه</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
